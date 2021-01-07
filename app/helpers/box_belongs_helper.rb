@@ -1,0 +1,2 @@
+module BoxBelongsHelper
+end

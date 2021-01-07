@@ -1,0 +1,2 @@
+class BoxBelongsController < ApplicationController
+end

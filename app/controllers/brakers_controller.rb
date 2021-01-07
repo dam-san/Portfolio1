@@ -1,0 +1,2 @@
+class BrakersController < ApplicationController
+end

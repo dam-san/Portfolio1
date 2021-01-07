@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_07_141522) do
+ActiveRecord::Schema.define(version: 2021_01_07_171727) do
+
+  create_table "box_belongs", force: :cascade do |t|
+    t.integer "braker_id"
+    t.integer "box_id"
+    t.integer "cableSize"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "boxes", force: :cascade do |t|
+    t.string "name"
+    t.string "image_id"
+    t.float "kw"
+    t.float "cos"
+    t.boolean "is_authorized", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "brakers", force: :cascade do |t|
+    t.integer "box_id"
+    t.integer "size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
