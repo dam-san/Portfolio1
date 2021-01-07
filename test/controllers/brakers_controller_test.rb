@@ -1,7 +1,39 @@
 require 'test_helper'
 
 class BrakersControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get new" do
+    get brakers_new_url
+    assert_response :success
+  end
+
+  test "should get create" do
+    get brakers_create_url
+    assert_response :success
+  end
+
+  test "should get edit" do
+    get brakers_edit_url
+    assert_response :success
+  end
+
+  test "should get destroy" do
+    get brakers_destroy_url
+    assert_response :success
+  end
+
+  test "should get update" do
+    get brakers_update_url
+    assert_response :success
+  end
+
+  test "should get show" do
+    get brakers_show_url
+    assert_response :success
+  end
+
+  test "should get index" do
+    get brakers_index_url
+    assert_response :success
+  end
+
 end
