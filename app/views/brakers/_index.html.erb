@@ -1,0 +1,32 @@
+<table class='table'>
+
+  <thead>
+     <tr>
+       <th>許容電流</th>
+       <th>電圧</th>
+       <th></th>
+       <th></th>
+     </tr>
+  </thead>
+
+  <tbody>
+     <%  brakers.each do |braker|  %>
+       <tr>
+         <td>
+           <%= link_to braker.size, braker_path(braker),  class: "btn btn-sm btn-info"%> [A]
+        </td>
+        <td>
+           <%= braker.volt %> [V]
+        </td>
+        <td>
+           <%= link_to 'Edit', edit_braker_path(braker),  class: "btn btn-sm btn-info"%>
+        </td>
+
+         <td>
+            <%= link_to 'Destroy', braker_path(braker), method: :delete, class: "btn btn-sm btn-danger"%>
+        </td>
+       </tr>
+     <% end %>
+  </tbody>
+
+</table>

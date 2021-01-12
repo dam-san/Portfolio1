@@ -1,2 +1,15 @@
 <h1>Brakers#show</h1>
 <p>Find me in app/views/brakers/show.html.erb</p>
+
+<h2>ブレーカー詳細</h2>
+電圧：<%= @braker.volt %>[V]
+<br>
+電流：<%= @braker.size %>[A]
+
+<%# if @braker.relation %>
+<%# end %>
+<%= render 'boxes/form', box: @box %>
+
+<%= render 'machines/form', machine: @machine %>
+
+

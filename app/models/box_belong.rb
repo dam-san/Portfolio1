@@ -1,2 +1,0 @@
-class BoxBelong < ApplicationRecord
-end

@@ -1,0 +1,2 @@
+module FacilityRelationsHelper
+end

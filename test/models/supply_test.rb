@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BoxBelongTest < ActiveSupport::TestCase
+class SupplyTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

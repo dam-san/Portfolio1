@@ -10,21 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_07_171727) do
-
-  create_table "box_belongs", force: :cascade do |t|
-    t.integer "braker_id"
-    t.integer "box_id"
-    t.integer "cableSize"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2021_01_07_165555) do
 
   create_table "boxes", force: :cascade do |t|
     t.string "name"
     t.string "image_id"
-    t.float "kw"
-    t.float "cos"
+    t.integer "place_id"
     t.boolean "is_authorized", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -33,6 +24,39 @@ ActiveRecord::Schema.define(version: 2021_01_07_171727) do
   create_table "brakers", force: :cascade do |t|
     t.integer "box_id"
     t.integer "size"
+    t.integer "volt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "machines", force: :cascade do |t|
+    t.string "name"
+    t.string "image_id"
+    t.integer "place_id"
+    t.integer "volt"
+    t.float "kw"
+    t.float "cos"
+    t.boolean "is_authorized", default: false
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "place"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relations", force: :cascade do |t|
+    t.integer "braker_id"
+    t.integer "box_id"
+    t.integer "cableSize"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "supplies", force: :cascade do |t|
+    t.integer "braker_id"
+    t.integer "machine_id"
+    t.integer "cableSize"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,2 +1,15 @@
 <h1>Boxes#show</h1>
-<p>Find me in app/views/boxes/show.html.erb</p>
+
+<h1>分電盤</h1>
+<p>場所</p>
+<%= @box.name %>
+<p>場所</p>
+No.<%= @box.place_id %>
+
+<h1>ブレーカー作成</h1>
+
+<%= render 'brakers/form', braker: @braker %>
+
+<h1>ブレーカー一覧</h1>
+
+<%= render 'brakers/index', brakers: @brakers %>

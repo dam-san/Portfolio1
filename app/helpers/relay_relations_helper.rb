@@ -1,0 +1,2 @@
+module RelayRelationsHelper
+end
