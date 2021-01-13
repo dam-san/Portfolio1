@@ -6,6 +6,7 @@ class CreateBoxes < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :image_id
       t.integer :place_id
+      t.integer :kind, default: 0
       t.boolean :is_authorized, default: "false"
       t.timestamps
     end
@@ -20,14 +21,14 @@ class CreateBoxes < ActiveRecord::Migration[5.2]
     create_table :relations do |t|
       t.integer :braker_id
       t.integer :box_id
-      t.integer :cableSize
+      t.integer :cable_size
       t.timestamps
     end
 
     create_table :supplies do |t|
       t.integer :braker_id
       t.integer :machine_id
-      t.integer :cableSize
+      t.integer :cable_size
       t.timestamps
     end
 

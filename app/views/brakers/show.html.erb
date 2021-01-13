@@ -2,14 +2,38 @@
 <p>Find me in app/views/brakers/show.html.erb</p>
 
 <h2>ブレーカー詳細</h2>
+
+
+<%# if @braker.relation.present? %>
+  親：<%= link_to @braker.box.name, box_path(@braker.box) %>
+<%# elsif @braker.supply.present? %>
+
+<%# end %>
+<br>
 電圧：<%= @braker.volt %>[V]
 <br>
 電流：<%= @braker.size %>[A]
+<br>
 
-<%# if @braker.relation %>
-<%# end %>
-<%= render 'boxes/form', box: @box %>
+<% if @braker.is_available? %>
 
-<%= render 'machines/form', machine: @machine %>
+  <%= render 'boxes/form2', box: @box %>
+
+  <%= render 'machines/form', machine: @machine %>
+
+<% else %>
 
 
+
+  <h2>分電盤詳細</h2>
+
+<% if @braker.relation.present? %>
+
+    子:<%= link_to @braker.relation.box.name,box_path(@braker.relation.box) %>
+
+<% elsif @braker.supply.present? %>
+
+    子:<%= link_to @braker.supply.machine.name, machine_path(@braker.supply.machine) %>
+
+<% end %>
+<% end %>

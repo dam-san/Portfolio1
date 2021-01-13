@@ -6,7 +6,12 @@ class MachinesController < ApplicationController
   end
 
   def create
-    Machine.new(machine_params).save
+    machine=Machine.new(machine_params)
+    machine.save
+    supply=Supply.new(supply_params)
+    supply.machine_id=machine.id
+    binding.pry
+    supply.save
     redirect_to request.referer
   end
 
@@ -14,6 +19,7 @@ class MachinesController < ApplicationController
   end
 
   def show
+    @machine=Machine.find(params[:id])
   end
 
   def update
@@ -26,5 +32,13 @@ class MachinesController < ApplicationController
 
   def machine_params
     params.require(:machine).permit(:name, :kw, :cos, :place_id, :volt)
+  end
+
+  def judge
+    params[:box][:braker_id].present?
+  end
+
+  def supply_params
+    params.require(:machine).permit(:braker_id, :cable_size)
   end
 end

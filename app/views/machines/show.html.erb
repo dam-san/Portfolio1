@@ -1,2 +1,15 @@
-<h1>Machines#show</h1>
-<p>Find me in app/views/machines/show.html.erb</p>
+<h1>機器詳細</h1>
+
+<p>親</p>
+<%= @machine.supply.braker.box.name %>
+<br><br>
+<p>機器名</p>
+<%= @machine.name %>
+<p>定格電力</p>
+<%= @machine.kw %>[kw]
+<p>力率</p>
+<%= @machine.cos %>
+<p>電圧</p>
+<%= @machine.volt %>
+<p>場所</p>
+No.<%= @machine.place_id %>

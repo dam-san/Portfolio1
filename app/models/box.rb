@@ -1,5 +1,5 @@
 class Box < ApplicationRecord
   has_many :brakers
-  has_many :relations
-  
+  has_one :relation
+
 end

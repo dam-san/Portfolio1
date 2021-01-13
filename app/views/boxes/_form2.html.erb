@@ -1,19 +1,13 @@
-<%= form_with model:machine,local:true do |f| %>
+<%= form_with model:box,local:true do |f| %>
 
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
-    <%= f.label :kw %>
-    <%= f.number_field :kw, class: 'form-control' %>
-    <%= f.label :cos %>
-    <%= f.number_field :cos, class: 'form-control' %>
-    <%= f.label :volt %>
-    <%= f.number_field :volt, class: 'form-control' %>
     <%= f.label :place_id %>
     <%= f.number_field :place_id, class: 'form-control' %>
     <%= f.label :cable_size %>
     <%= f.number_field :cable_size, class: 'form-control' %>
     <%= f.hidden_field :braker_id, :value =>@braker.id %>
-
+    <%= f.hidden_field :kind, :value =>1 %>
     <%= f.submit class: 'btn' %>
 
 <% end %>

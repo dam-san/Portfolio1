@@ -1,6 +1,9 @@
-<h1>Boxes#show</h1>
+<h1>BOX詳細</h1>
 
-<h1>分電盤</h1>
+<% if @box.relation.present? %>
+<p>親</p>
+<%= @box.relation.braker.box.name %>
+<%end %>
 <p>場所</p>
 <%= @box.name %>
 <p>場所</p>

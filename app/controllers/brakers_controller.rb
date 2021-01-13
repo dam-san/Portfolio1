@@ -20,6 +20,7 @@ class BrakersController < ApplicationController
 
   def show
     @braker=Braker.find(params[:id])
+    # binding.pry
     @box=Box.new
     # binding.pry
     @machine=Machine.new
