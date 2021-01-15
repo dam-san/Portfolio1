@@ -5,6 +5,7 @@
        <th></th>
        <th>許容電流</th>
        <th>電圧</th>
+       <th>使用状況</th>
        <th></th>
        <th></th>
      </tr>
@@ -21,6 +22,15 @@
         </td>
         <td>
            <%= braker.volt %> [V]
+        </td>
+        <td>
+           <%if braker.box.kind == 0 && braker.relation.present? %>
+             <%= link_to braker.relation.box.name, box_path(braker.relation.box) %>
+           <%elsif braker.box.kind == 1 && braker.supply.present? %>
+              <%= link_to braker.supply.machine.name, machine_path(braker.supply.machine)  %>
+           <%else %>
+             使用可能
+            <%end%>
         </td>
         <td>
            <%= link_to 'Edit', edit_braker_path(braker),  class: "btn btn-sm btn-info"%>

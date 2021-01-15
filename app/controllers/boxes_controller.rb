@@ -1,7 +1,7 @@
 class BoxesController < ApplicationController
   def new
     @box=Box.new
-    @boxes=Box.all
+    @boxes=Box.where(kind: 0)
   end
 
   def create
@@ -9,7 +9,7 @@ class BoxesController < ApplicationController
     box.save
 
     if judge
-      
+
       relation=Relation.new(relation_params)
       relation.box_id=box.id
       relation.save
@@ -31,11 +31,13 @@ class BoxesController < ApplicationController
   def show
     @box=Box.find(params[:id])
 
-    @brakers=Braker.where(box_id: @box.id)
+    @brakers=Braker.where(box_id: @box.id).includes(:relation).includes(:box)
     @braker=Braker.new
   end
 
   def index
+    @machines=Machine.all
+
   end
 
 private

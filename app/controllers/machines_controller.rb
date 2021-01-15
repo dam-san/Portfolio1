@@ -10,7 +10,6 @@ class MachinesController < ApplicationController
     machine.save
     supply=Supply.new(supply_params)
     supply.machine_id=machine.id
-    binding.pry
     supply.save
     redirect_to request.referer
   end

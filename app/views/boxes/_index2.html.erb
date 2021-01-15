@@ -1,0 +1,26 @@
+<table class='table'>
+
+  <thead>
+     <tr>
+       <th>分電盤</th>
+       <th></th>
+     </tr>
+  </thead>
+
+  <tbody>
+     <%  brakers.each do |braker|  %>
+       <tr>
+         <td>
+          <%#= link_to braker.size, braker_path(braker),  class: "btn btn-sm btn-info"%><br>
+
+          <% if braker.has_box? %>
+            <%= link_to braker.box_child.name, box_path(braker.box_child),  class: "btn btn-sm btn-info"%>
+          <% end %>
+        </td>
+        <td>
+
+        </td>
+       </tr>
+     <% end %>
+  </tbody>
+</table>

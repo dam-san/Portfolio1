@@ -15,7 +15,7 @@
 電流：<%= @braker.size %>[A]
 <br>
 
-<% if @braker.is_available? %>
+<% if !(@braker.has_box? || @braker.has_machine?) %>
 
   <%= render 'boxes/form2', box: @box %>
 
