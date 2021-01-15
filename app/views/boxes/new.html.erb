@@ -1,7 +1,13 @@
-<%= link_to "TREE",boxes_path %>
 
-<h1>変電所登録</h1>
+<div class="row mt-5">
 
-  <%= render 'form', box: @box %>
+  <div class="col-lg-5">
+    <%= render 'form', box: @box %>
+  </div>
+  <div class="col-lg-auto">
+  </div>
 
-  <%= render 'index', boxes: @boxes %>
+  <div class="col-lg-5">
+    <%= render 'index', boxes: @boxes %>
+  </div>
+</div>

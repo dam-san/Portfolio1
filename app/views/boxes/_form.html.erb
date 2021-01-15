@@ -1,10 +1,24 @@
-<%= form_with model:box,local:true do |f| %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-    <%= f.label :place_id %>
-    <%= f.number_field :place_id, class: 'form-control' %>
 
-    <%= f.submit class: 'btn' %>
 
-<% end %>
+<div class="card">
+  <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
+  <div class="card-body">
+    <h4 class="card-title">Substation</h4>
+    <p class="card-text">
+      Some quick example text to build on the card title
+      and make up the bulk of the card's content.
+    </p>
+        <%= form_with model:box,local:true do |f| %>
+
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control' %>
+            <%= f.label :place_id %>
+            <%= f.number_field :place_id, class: 'form-control' %>
+
+            <%= f.submit class: 'btn btn-primary mt-3' %>
+
+        <% end %>
+
+  </div>
+</div>

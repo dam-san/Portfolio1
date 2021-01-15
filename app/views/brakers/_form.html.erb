@@ -1,12 +1,22 @@
-<%= form_with model:braker,local:true do |f| %>
+<div class="card">
+  <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
+  <div class="card-body">
+    <h4 class="card-title">ブレーカー作成</h4>
+    <p class="card-text">
+      Some quick example text to build on the card title
+      and make up the bulk of the card's content.
+    </p>
 
-    <%= f.label :size%>
-    <%= f.select  :size, {'600A': 600, '450A': 450, '300A': 300, '200A': 200, '100A': 100,'60A': 60}, { include_blank: 'サイズ'}, { class: 'form-control', required: true} %>
-    <br>
-    <%= f.label :volt%>
-    <%= f.select :volt, {'100V': 100, '200V': 200}, { include_blank: '電圧'}, { class: 'form-control' , required: true } %>
-    <%= f.hidden_field :box_id, :value => @box.id %>
-    <br><br>
-    <%= f.submit class: 'btn' %>
+        <%= form_with model:braker,local:true do |f| %>
 
-<% end %>
+            <%= f.label :size%>
+            <%= f.select  :size, {'600A': 600, '450A': 450, '300A': 300, '200A': 200, '100A': 100,'60A': 60}, { include_blank: 'サイズ'}, { class: 'form-control', required: true} %>
+            <%= f.label :volt%>
+            <%= f.select :volt, {'100V': 100, '200V': 200}, { include_blank: '電圧'}, { class: 'form-control' , required: true } %>
+            <%= f.hidden_field :box_id, :value => @box.id %>
+            <%= f.submit class: 'btn btn-primary mt-3' %>
+
+        <% end %>
+
+  </div>
+</div>

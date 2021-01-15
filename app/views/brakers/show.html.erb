@@ -1,39 +1,38 @@
-<h1>Brakers#show</h1>
-<p>Find me in app/views/brakers/show.html.erb</p>
 
-<h2>ブレーカー詳細</h2>
-
-
-<%# if @braker.relation.present? %>
-  親：<%= link_to @braker.box.name, box_path(@braker.box) %>
-<%# elsif @braker.supply.present? %>
-
-<%# end %>
-<br>
-電圧：<%= @braker.volt %>[V]
-<br>
-電流：<%= @braker.size %>[A]
-<br>
-
-<% if !(@braker.has_box? || @braker.has_machine?) %>
-
-  <%= render 'boxes/form2', box: @box %>
-
-  <%= render 'machines/form', machine: @machine %>
-
-<% else %>
-
+  <div class="col-lg-4">
+    <div class="card">
+      <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
+      <div class="card-body">
+        <h5 class="card-title"><%= @braker.box.name%>のブレーカー</h5>
+        <p class="card-text">
+          Some quick example text to build on the card title
+          and make up the bulk of the card's content.
+        </p>
+        <p>belongs to：<%= link_to @braker.box.name, box_path(@braker.box) %></p>
+        <p>voltage：<%= @braker.volt %>[V]</p>
+        <p>Current：<%= @braker.size %>[A]</p>
+        <p>
+          <% if @braker.relation.present? %>
+              has:<%= link_to @braker.relation.box.name,box_path(@braker.relation.box) %>
+          <% elsif @braker.supply.present? %>
+              has:<%= link_to @braker.supply.machine.name, machine_path(@braker.supply.machine) %>
+          <% end %>
+        </p>
+     </div>
+    </div>
+  </div>
 
 
-  <h2>分電盤詳細</h2>
+  <div class="col-lg-4">
 
-<% if @braker.relation.present? %>
+          <% if !(@braker.has_box? || @braker.has_machine?) %>
 
-    子:<%= link_to @braker.relation.box.name,box_path(@braker.relation.box) %>
+            <%= render 'boxes/form2', box: @box %>
 
-<% elsif @braker.supply.present? %>
+            <%= render 'machines/form', machine: @machine %>
 
-    子:<%= link_to @braker.supply.machine.name, machine_path(@braker.supply.machine) %>
+          <% else %>
 
-<% end %>
-<% end %>
+
+          <% end %>
+  </div>

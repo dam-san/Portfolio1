@@ -1,18 +1,28 @@
-<h1>BOX詳細</h1>
 
-<% if @box.relation.present? %>
-<p>親</p>
-<%= @box.relation.braker.box.name %>
-<%end %>
-<p>場所</p>
-<%= @box.name %>
-<p>場所</p>
-No.<%= @box.place_id %>
+  <div class="col-lg-5">
+    <div class="card">
+      <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
+      <div class="card-body">
+        <h4 class="card-title"><%= @box.name %></h4>
+        <p class="card-text">
+          Some quick example text to build on the card title
+          and make up the bulk of the card's content.
+        </p>
+            <% if @box.relation.present? %>
+            <p class="card-text">親</p>
+            <%= @box.relation.braker.box.name %>
+            <%end %>
+            <p class="card-text">場所</p>
+            No.<%= @box.place_id %>
 
-<h1>ブレーカー作成</h1>
+      </div>
+    </div>
+    <div class="mt-5">
+      <%= render 'brakers/form', braker: @braker %>
+    </div>
+  </div>
 
-<%= render 'brakers/form', braker: @braker %>
 
-<h1>ブレーカー一覧</h1>
-
-<%= render 'brakers/index', brakers: @brakers %>
+    <div class="col-lg-5">
+      <%= render 'brakers/index', brakers: @brakers %>
+    </div>

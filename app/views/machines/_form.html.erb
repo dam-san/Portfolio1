@@ -1,21 +1,31 @@
-<h2>機器追加</h2>
+<div class="card">
+  <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
+  <div class="card-body">
+    <h4 class="card-title">Machine</h4>
+    <p class="card-text">
+      Some quick example text to build on the card title
+      and make up the bulk of the card's content.
+    </p>
 
-<%= form_with model:machine,local:true do |f| %>
+        <%= form_with model:machine,local:true do |f| %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-    <%= f.label :kw %>
-    <%= f.number_field :kw, class: 'form-control' %>
-    <%= f.label :cos %>
-    <%= f.number_field :cos, class: 'form-control' %>
-    <%= f.label :volt %>
-    <%= f.number_field :volt, class: 'form-control' %>
-    <%= f.label :place_id %>
-    <%= f.number_field :place_id, class: 'form-control' %>
-    <%= f.label :cable_size %>
-    <%= f.number_field :cable_size, class: 'form-control' %>
-    <%= f.hidden_field :braker_id, :value =>@braker.id %>
-    <br>
-    <%= f.submit class: 'btn' %>
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control' %>
+            <%= f.label :kw %>
+            <%= f.number_field :kw, class: 'form-control' %>
+            <%= f.label :cos %>
+            <%= f.number_field :cos, class: 'form-control' %>
+            <%= f.label :volt %>
+            <%= f.number_field :volt, class: 'form-control' %>
+            <%= f.label :place_id %>
+            <%= f.number_field :place_id, class: 'form-control' %>
+            <%= f.label :cable_size %>
+            <%= f.number_field :cable_size, class: 'form-control' %>
+            <%= f.hidden_field :braker_id, :value =>@braker.id %>
 
-<% end %>
+            <%= f.submit class: 'btn btn-primary mt-3' %>
+
+        <% end %>
+
+  </div>
+</div>
