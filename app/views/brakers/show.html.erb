@@ -22,17 +22,17 @@
     </div>
   </div>
 
+      <% if !(@braker.has_box? || @braker.has_machine?) %>
 
-  <div class="col-lg-4">
-
-          <% if !(@braker.has_box? || @braker.has_machine?) %>
-
+          <div class="col-lg-4"> 
             <%= render 'boxes/form2', box: @box %>
+          </div>
 
+          <div class="col-lg-4">
             <%= render 'machines/form', machine: @machine %>
+          </div>
+          
+      <% else %>
 
-          <% else %>
 
-
-          <% end %>
-  </div>
+      <% end %>

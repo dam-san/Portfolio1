@@ -1,4 +1,7 @@
 class BoxesController < ApplicationController
+
+  before_action :authenticate_user!
+
   def new
     @box=Box.new
     @boxes=Box.where(kind: 0)

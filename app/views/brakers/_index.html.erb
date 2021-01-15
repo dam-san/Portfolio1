@@ -2,11 +2,10 @@
 
   <thead>
      <tr>
-       <th></th>
+       <th>#</th>
        <th>許容電流</th>
        <th>電圧</th>
        <th>使用状況</th>
-       <th></th>
        <th></th>
      </tr>
   </thead>
@@ -16,7 +15,7 @@
      <%  brakers.each do |braker|  %>
        <% n+=1 %>
        <tr>
-         <td><%= link_to n,  braker_path(braker),  class: "btn btn-sm btn-info"%></td>
+         <td><%= link_to n,  braker_path(braker),  class: ""%></td>
          <td>
            <%= braker.size%> [A]
         </td>
@@ -33,10 +32,7 @@
             <%end%>
         </td>
         <td>
-           <%= link_to 'Edit', edit_braker_path(braker),  class: "btn btn-sm btn-info"%>
-        </td>
-
-         <td>
+           <%= link_to 'Edit', edit_braker_path(braker),  class: "btn btn-sm btn-info"%> |
             <%= link_to 'Destroy', braker_path(braker), method: :delete, class: "btn btn-sm btn-danger"%>
         </td>
        </tr>
