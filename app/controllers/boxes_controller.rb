@@ -9,6 +9,7 @@ class BoxesController < ApplicationController
 
   def create
     box=Box.new(box_params)
+    box.place_id=params[:box][:place].to_i
     box.save
 
     if judge
@@ -50,11 +51,11 @@ private
   end
 
   def judge
-    params[:box][:braker_id].present?
+      params[:box][:braker_id].present?
   end
 
   def relation_params
-    params.require(:box).permit(:braker_id, :cable_size)
+      params.require(:box).permit(:braker_id, :cable_size)
   end
 
 end

@@ -13,12 +13,13 @@
 
             <%= f.label :name %>
             <%= f.text_field :name, class: 'form-control' %>
-            <%= f.label :place_id %>
-            <%= f.number_field :place_id, class: 'form-control' %>
-
+            <%= f.label :place %>
+            <%= f.collection_select :place, Place.all , :id, :place,{prompt: "選択してください"}, {class: "form-control"} %>
             <%= f.submit class: 'btn btn-primary mt-3' %>
 
         <% end %>
+
+    <p><%= link_to "新規場所登録のページ", new_place_path, class: "mt-3" %></p>
 
   </div>
 </div>

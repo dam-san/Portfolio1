@@ -7,7 +7,7 @@ class CreateBoxes < ActiveRecord::Migration[5.2]
       t.string :image_id
       t.integer :place_id
       t.integer :kind, default: 0
-      t.boolean :is_authorized, default: "false"
+      t.boolean :delete_flag, default: "false"
       t.timestamps
     end
 
@@ -44,7 +44,7 @@ class CreateBoxes < ActiveRecord::Migration[5.2]
       t.integer :volt
       t.float :kw
       t.float :cos
-      t.boolean :is_authorized, default: "false"
+      t.boolean :delete_flag, default: "false"
   end
 
  end
