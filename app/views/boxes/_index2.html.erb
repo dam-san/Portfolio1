@@ -14,7 +14,7 @@
           <%#= link_to braker.size, braker_path(braker),  class: "btn btn-sm btn-info"%><br>
 
           <% if braker.has_box? %>
-            <%= link_to braker.box_child.name, box_path(braker.box_child),  class: "btn btn-sm btn-info"%>
+            <%= link_to braker.box_child.name, box_path(braker.box_child),  class: "btn btn-sm btn-outline-info"%>
           <% end %>
         </td>
         <td>

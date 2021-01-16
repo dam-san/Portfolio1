@@ -16,11 +16,11 @@
            <%= link_to box.name, box_path(box),  class: ""%>
         </td>
         <td>
-           <%= link_to 'Edit', edit_box_path(box),  class: "btn btn-sm btn-info"%>
+           <%= link_to 'Edit', edit_box_path(box),  class: "btn btn-sm btn-outline-info"%>
         </td>
 
          <td>
-            <%= link_to 'Destroy', box_path(box), method: :delete, class: "btn btn-sm btn-danger"%>
+            <%= link_to 'Destroy', box_path(box), method: :delete, class: "btn btn-sm btn-outline-warning"%>
         </td>
        </tr>
      <% end %>
