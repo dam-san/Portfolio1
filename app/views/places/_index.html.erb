@@ -13,13 +13,13 @@
      <%  places.each do |place|  %>
        <tr>
          <td>
-           <%= link_to place.place, place_path(place),  class: ""%>
+           <%= link_to place.place, place_path(place), remote: true, class: "btn btn-sm btn-outline-secondary"%>
         </td>
         <td>
-           <%= link_to 'Edit', edit_place_path(place),  class: "btn btn-sm btn-outline-info"%>
+           <%= link_to 'Edit', edit_place_path(place), remote: true,  class: "btn btn-sm btn-outline-info"%>
         </td>
          <td>
-            <%= link_to 'Destroy', place_path(place), method: :delete, class: "btn btn-sm btn-outline-warning"%>
+            <%= link_to 'Destroy', place_path(place), remote: true, method: :delete, class: "btn btn-sm btn-outline-warning"%>
         </td>
        </tr>
      <% end %>

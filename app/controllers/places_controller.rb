@@ -10,6 +10,8 @@ class PlacesController < ApplicationController
   # GET /places/1
   # GET /places/1.json
   def show
+    @place= Place.find(params[:id])
+
   end
 
   # GET /places/new
@@ -20,34 +22,33 @@ class PlacesController < ApplicationController
 
   # GET /places/1/edit
   def edit
+    @place= Place.find(params[:id])
   end
 
   # POST /places
   # POST /places.json
   def create
     Place.new(place_params).save
-    redirect_to request.referer
+    @place = Place.new
+    @places = Place.all
+
   end
 
   # PATCH/PUT /places/1
   # PATCH/PUT /places/1.json
   def update
-    respond_to do |format|
-      if @place.update(place_params)
-        format.html { redirect_to @place, notice: 'Place was successfully updated.' }
-        format.json { render :show, status: :ok, location: @place }
-      else
-        format.html { render :edit }
-        format.json { render json: @place.errors, status: :unprocessable_entity }
-      end
-    end
+    @plase=Place.find(params[:id])
+    @plase.update(place_params)
+    @places=Place.all
+    redirect_to request.referer
   end
 
   # DELETE /places/1
   # DELETE /places/1.json
   def destroy
+    @places=Place.all
     Place.find(params[:id]).destroy
-    redirect_to request.referer
+
   end
 
   private

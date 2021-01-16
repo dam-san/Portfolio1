@@ -9,7 +9,7 @@
       Some quick example text to build on the card title
       and make up the bulk of the card's content.
     </p>
-        <%= form_with model:place do |f| %>
+        <%= form_with model:place,local:true do |f| %>
 
             <%= f.label :place %>
             <%= f.text_field :place, class: 'form-control' %>
@@ -20,3 +20,4 @@
 
   </div>
 </div>
+
