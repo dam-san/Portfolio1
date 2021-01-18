@@ -1,3 +1,4 @@
+<div class="col-lg-auto">
 
 <div class="card">
   <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
@@ -9,7 +10,7 @@
       また、系統のバックアップ処理も行えます。
     </p>
 
-          <%= form_with model: @admin, url: admin_registration_path, class: 'new_user', local: true do |f| %>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="field">
               <%= f.label :email %><br />
               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
@@ -36,35 +37,37 @@
   </div>
 </div>
 
+</div>
 
 
 <% if false %>
 
-<h2>管理者画面ログイン</h2>
+<!--<h2>管理者画面ログイン</h2>-->
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<!--<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>-->
+<!--  <div class="field">-->
+<!--    <%= f.label :email %><br />-->
+<!--    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>-->
+<!--  </div>-->
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+<!--  <div class="field">-->
+<!--    <%= f.label :password %><br />-->
+<!--    <%= f.password_field :password, autocomplete: "current-password" %>-->
+<!--  </div>-->
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
+<!--  <% if devise_mapping.rememberable? %>-->
+<!--    <div class="field">-->
+<!--      <%= f.check_box :remember_me %>-->
+<!--      <%= f.label :remember_me %>-->
+<!--    </div>-->
+<!--  <% end %>-->
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+<!--  <div class="actions">-->
+<!--    <%= f.submit "Log in" %>-->
+<!--  </div>-->
+<!--<% end %>-->
+
+<!--<%= render "admins/shared/links" %>-->
+
 <% end %>
 
-<%= render "admins/shared/links" %>
-
-<% end %>

@@ -1,0 +1,31 @@
+<table class='table table-bordered'>
+
+  <thead>
+     <tr>
+       <th>社員名</th>
+       <th>会社名</th>
+       <th>編集権限</th>
+       <th>除名処理</th>
+     </tr>
+  </thead>
+
+  <tbody>
+     <%  members.each do |member|  %>
+       <tr>
+         <td>
+           <%= member.name%>
+        </td>
+        <td>
+           <%= member.company%>
+        </td>
+        <td>
+           <%#= link_to 'Edit', edit_member_path(member),  class: "btn btn-sm btn-outline-info"%>
+        </td>
+         <td>
+            <%#= link_to 'Destroy', member_path(member), method: :delete, class: "btn btn-sm btn-outline-warning"%>
+        </td>
+       </tr>
+     <% end %>
+  </tbody>
+
+</table>

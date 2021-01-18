@@ -4,9 +4,10 @@ class Admins::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    super
+    # binding.pry
+  end
 
   # POST /resource/sign_in
   # def create
@@ -14,9 +15,11 @@ class Admins::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    # binding.pry
+    super
+    # binding.pry
+  end
 
   # protected
 

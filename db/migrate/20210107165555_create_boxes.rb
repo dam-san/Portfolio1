@@ -48,6 +48,7 @@ class CreateBoxes < ActiveRecord::Migration[5.2]
       t.integer :place_id
       t.integer :company_id
       t.integer :volt
+      t.integer :prefecture
       t.float :kw
       t.float :cos
       t.boolean :is_deleted, default: "false"
