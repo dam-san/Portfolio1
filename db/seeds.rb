@@ -7,14 +7,35 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-  Place.create(
-    name: 北の湖
+  Place.create!(
+    name: 北の湖,
   )
 
-  Place.create(
-    name: 西の砂漠
+  Place.create!(
+    name: 西の砂漠,
   )
 
-  Place.create(
-    name: 南の塔
+  Place.create!(
+    name: 南の塔,
+  )
+
+  Admin.create!(
+   name: '瀧花新一',
+   company: '日本精線株式会社'
+   email: 'd@g',
+   password: '098098',
+  )
+
+  User.create!(
+   name: 'むじるしりょ',
+   company: '日本精線株式会社'
+   email: 'm@r',
+   password: '098098',
+  )
+
+User.create!(
+   name: 'dam-san',
+   company: '日本精線株式会社'
+   email: 'd@s',
+   password: '098098',
   )

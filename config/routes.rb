@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
 
+
+  # root to: 'home/top'
   get '/admin' => 'manages#top'
-  patch 'manages/index'
+  get 'manages/index'
   get 'manages/user_manage'
 
 devise_for :admins, controllers: {
@@ -17,7 +19,8 @@ devise_for :users, controllers: {
   registrations: 'users/registrations'
 }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'boxes#new'
+
+  get '/' => 'home#top'
 
   resources :boxes
   resources :brakers
