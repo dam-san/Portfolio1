@@ -19,10 +19,10 @@
            <%= member.company%>
         </td>
         <td>
-           <%#= link_to 'Edit', edit_member_path(member),  class: "btn btn-sm btn-outline-info"%>
+           <%= link_to member.status, admin_member_path(member), method: :patch , class: "btn btn-sm btn-outline-info"%>
         </td>
          <td>
-            <%#= link_to 'Destroy', member_path(member), method: :delete, class: "btn btn-sm btn-outline-warning"%>
+            <%= link_to '除名', admin_member_path(member), method: :delete, data: { confirm: '本当に消しますか？' } , class: "btn btn-sm btn-outline-warning"%>
         </td>
        </tr>
      <% end %>
