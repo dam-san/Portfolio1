@@ -7,6 +7,7 @@ class CreateBoxes < ActiveRecord::Migration[5.2]
       t.string :image_id
       t.string :company
       t.integer :place_id
+      t.integer :floor, default: 0
       t.integer :kind, default: 0
       t.boolean :is_deleted, default: "false"
       t.timestamps
@@ -48,7 +49,7 @@ class CreateBoxes < ActiveRecord::Migration[5.2]
       t.integer :place_id
       t.string :company
       t.integer :volt
-      t.integer :prefecture
+      t.integer :floor, default: 0
       t.float :kw
       t.float :cos
       t.boolean :is_deleted, default: "false"

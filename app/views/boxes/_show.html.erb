@@ -1,0 +1,45 @@
+
+    <div class="card">
+      <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
+      <div class="card-body">
+        <h4 class="card-title"><%= @box.name %></h4>
+        <p class="card-text">
+
+        </p>
+            <% if @box.relation.present? %>
+            <p class="card-text">親</p>
+            <%= @box.relation.braker.box.name %>
+            <%end %>
+            <p class="card-text">場所</p>
+            <%= @box.place.place %>
+
+       <!---------以下ブレーカー作成画面------------->
+
+           <h4 class="card-title">ブレーカー作成</h4>
+            <p class="card-text">
+            </p>
+        
+                <%= form_with model:braker,local:true do |f| %>
+        
+                    <%= f.label :size%>
+                    <%= f.select  :size, {'600A': 600, '450A': 450, '300A': 300, '200A': 200, '100A': 100,'60A': 60}, { include_blank: 'サイズ'}, { class: 'form-control', required: true} %>
+                    <%= f.label :volt%>
+                    <%= f.select :volt, {'100V': 100, '200V': 200}, { include_blank: '電圧'}, { class: 'form-control' , required: true } %>
+                    <%= f.hidden_field :box_id, :value => @box.id %>
+                    <%= f.submit class: 'btn btn-primary mt-3' %>
+        
+                <% end %>
+
+
+
+      </div>
+    </div>
+
+    <!--<div class="mt-5">-->
+    <!--  <%#= render 'brakers/form', braker: braker %>-->
+    <!--</div>-->
+
+
+    <!--<div class="col-lg-7">-->
+    <!--  <%#= render 'brakers/index', brakers: @brakers %>-->
+    <!--</div>-->

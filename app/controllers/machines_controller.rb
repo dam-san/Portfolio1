@@ -9,6 +9,7 @@ class MachinesController < ApplicationController
     machine=Machine.new(machine_params)
 
     machine.place_id=params[:machine][:place].to_i
+    machine.floor=Braker.find(params[:machine][:braker_id]).box.floor+1
     machine.save
     supply=Supply.new(supply_params)
     supply.machine_id=machine.id

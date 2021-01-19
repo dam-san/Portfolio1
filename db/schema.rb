@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2021_01_15_072202) do
     t.string "image_id"
     t.string "company"
     t.integer "place_id"
+    t.integer "floor", default: 0
     t.integer "kind", default: 0
     t.boolean "is_deleted", default: false
     t.datetime "created_at", null: false
@@ -52,7 +53,7 @@ ActiveRecord::Schema.define(version: 2021_01_15_072202) do
     t.integer "place_id"
     t.string "company"
     t.integer "volt"
-    t.integer "prefecture"
+    t.integer "floor", default: 0
     t.float "kw"
     t.float "cos"
     t.boolean "is_deleted", default: false

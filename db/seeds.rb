@@ -36,6 +36,6 @@
   User.create!(
    name: 'dam-san',
    company: '日本精線株式会社',
-   email: 'd@s',
+   email: 'c@t',
    password: '098098',
   )
