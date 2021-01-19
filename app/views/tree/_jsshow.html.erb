@@ -1,0 +1,16 @@
+
+<div class="card h-100">
+  <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
+  <div class="card-body">
+    <h4 class="card-title"><%= @box.name %></h4>
+    <p class="card-text">
+    </p>
+        <% if @box.relation.present? %>
+        <p class="card-text">親</p>
+        <%= @box.relation.braker.box.name %>
+        <%end %>
+        <p class="card-text">場所</p>
+        <%= @box.place.place %>
+
+  </div>
+</div>

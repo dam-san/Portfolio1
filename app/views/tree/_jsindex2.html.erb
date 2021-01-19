@@ -1,0 +1,36 @@
+<h4 class="text-center"><%= box.name%></h4>
+
+<table class='table table-boardered'>
+
+  <thead>
+     <tr>
+       <th>ブレーカー</th>
+       <th>接続状況</th>
+     </tr>
+  </thead>
+
+  <tbody>
+     <%  brakers.each do |braker|  %>
+       <tr>
+         <td>
+           <%= braker.volt%>[V]用<%= braker.size%>[AT]
+         </td>
+
+         <td>
+
+             <%if braker.box.kind == 0 && braker.relation.present? %>
+               <%= link_to braker.relation.box.name, tree_path(braker.relation.box), remote: true %>
+               <%#= link_to braker.relation.box.name, box_path(braker.relation.box) %>
+             <%elsif braker.box.kind == 1 && braker.supply.present? %>
+
+               <%= link_to braker.supply.machine.name, tree_detail_path(braker.supply.machine), remote: true  %>
+               <%#= link_to braker.supply.machine.name, machine_path(braker.supply.machine)  %>
+             <%else %>
+               使用可能
+              <%end%>
+         </td>
+
+       </tr>
+     <% end %>
+  </tbody>
+</table>

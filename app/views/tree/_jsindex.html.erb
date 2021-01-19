@@ -1,0 +1,29 @@
+<table class='table table-bordered'>
+
+  <thead>
+     <tr>
+       <th>変電所名</th>
+       <th></th>
+       <th></th>
+       <!--<th>本の感想</th>-->
+     </tr>
+  </thead>
+
+  <tbody>
+     <%  boxes.each do |box|  %>
+       <tr>
+         <td>
+           <%= link_to box.name, tree_path(box), remote: true , class: ""%>
+        </td>
+        <td>
+           あああ<%#= link_to 'Edit', edit_box_path(box),  class: "btn btn-sm btn-outline-info"%>
+        </td>
+
+         <td>
+            いいい<%#= link_to 'Destroy', box_path(box), method: :delete, class: "btn btn-sm btn-outline-warning"%>
+        </td>
+       </tr>
+     <% end %>
+  </tbody>
+
+</table>

@@ -1,0 +1,14 @@
+<%# rowは５段までとする.色々展開した後に、変電所を変更した場合は、下の展開文を削除しなければならない。%>
+<% n=5%>
+<% m=@box.floor+1 %>
+
+$("#<%= @box.floor+1 %> #show").html("<%= j(render 'jsshow', {box: @box}) %>");
+$("#<%= @box.floor+1 %> #index").html("<%= j(render 'jsindex2', {box: @box, brakers: @brakers}) %>");
+
+<% k=0 %>
+<% for i in m+1..n do %>
+<% k=k+1 %>
+$("#<%= i %> #show").html("");
+$("#<%= i %> #index").html("");
+<% end %>
+

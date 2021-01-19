@@ -1,0 +1,25 @@
+
+    <div class="card h-100">
+      <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
+      <div class="card-body">
+        <h4 class="card-title">Box#show</h4>
+        <p class="card-text">
+          Some quick example text to build on the card title
+          and make up the bulk of the card's content.
+        </p>
+        <p>親</p>
+        <%= machine.supply.braker.box.name %>
+        <br><br>
+        <p>機器名</p>
+        <%= machine.name %>
+        <p>定格電力</p>
+        <%= machine.kw %>[kw]
+        <p>力率</p>
+        <%= machine.cos %>
+        <p>電圧</p>
+        <%= machine.volt %>
+        <p>場所</p>
+        No.<%= machine.place_id %>
+      </div>
+    </div>
+

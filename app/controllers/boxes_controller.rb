@@ -10,9 +10,11 @@ class BoxesController < ApplicationController
   def create
     box=Box.new(box_params)
     box.place_id=params[:box][:place].to_i
-    
+
     # 以下は登録物の階層設定。brakerを持つ親の階層に＋１する
-    box.floor=Braker.find(params[:box][:braker_id]).box.floor+1
+    if box.kind != 0
+     box.floor=Braker.find(params[:box][:braker_id]).box.floor+1
+    end
     box.save
 
     if judge
