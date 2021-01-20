@@ -1,4 +1,4 @@
-
+<div class="row mt-5">
   <div class="col-lg-4">
     <div class="card">
       <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
@@ -24,15 +24,17 @@
 
       <% if !(@braker.has_box? || @braker.has_machine?) %>
 
-          <div class="col-lg-4"> 
+          <div class="col-lg-4">
             <%= render 'boxes/form2', box: @box %>
           </div>
 
           <div class="col-lg-4">
             <%= render 'machines/form', machine: @machine %>
           </div>
-          
+
       <% else %>
 
 
       <% end %>
+
+ </div>

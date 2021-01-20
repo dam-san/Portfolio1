@@ -4,8 +4,8 @@ class TreeController < ApplicationController
   def index
     @boxes=Box.where(kind: 0)
   end
-  
-  
+
+
   # クリック時のｊｓ通信に関するアクションです。
   def show
     @box=Box.find(params[:id])
@@ -16,7 +16,6 @@ class TreeController < ApplicationController
   def detail
     @machine=Machine.find(params[:id])
     @box=@machine.parent
-    # binding.pry
   end
 
 

@@ -6,6 +6,7 @@
      <tr>
        <th>ブレーカー</th>
        <th>接続状況</th>
+       <th></th>
      </tr>
   </thead>
 
@@ -16,19 +17,35 @@
            <%= braker.volt%>[V]用<%= braker.size%>[AT]
          </td>
 
-         <td>
 
-             <%if braker.box.kind == 0 && braker.relation.present? %>
-               <%= link_to braker.relation.box.name, tree_path(braker.relation.box), remote: true %>
-               <%#= link_to braker.relation.box.name, box_path(braker.relation.box) %>
-             <%elsif braker.box.kind == 1 && braker.supply.present? %>
+          <%if braker.box.kind == 0 && braker.relation.present? %>
 
-               <%= link_to braker.supply.machine.name, tree_detail_path(braker.supply.machine), remote: true  %>
-               <%#= link_to braker.supply.machine.name, machine_path(braker.supply.machine)  %>
-             <%else %>
-               使用可能
-              <%end%>
-         </td>
+              <td>
+                   <%= link_to braker.relation.box.name, tree_path(braker.relation.box), remote: true %>
+              </td>
+              <td>
+                   <%= link_to '詳細へ移動', box_path(braker.relation.box), class: "btn btn-sm btn-outline-info"%>
+              </td>
+
+          <%elsif braker.box.kind == 1 && braker.supply.present? %>
+
+              <td>
+                   <%= link_to braker.supply.machine.name, tree_detail_path(braker.supply.machine), remote: true  %>
+              </td>
+              <td>
+                   <%= link_to '詳細へ移動', machine_path(braker.supply.machine), class: "btn btn-sm btn-outline-info"%>
+              </td>
+
+           <%else %>
+
+               <td>
+                   使用可能
+                </td>
+                <td>
+                   <%= link_to '機器追加する', braker_path(braker) , class: "btn btn-sm btn-outline-info"%>
+                </td>
+
+           <%end%>
 
        </tr>
      <% end %>
