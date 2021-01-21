@@ -1,39 +1,41 @@
-<div class="col-lg-auto">
+<div class="row mt-5">
+  <div class="col-lg-6">
+    <div class="card">
+      <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
+      <div class="card-body">
+        <h4 class="card-title">ユーザーログイン画面</h4>
+        <p class="card-text">
+          ここは、ユーザーログイン画面です。
+        </p>
 
-<div class="card">
-  <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
-  <div class="card-body">
-    <h4 class="card-title">ユーザーログイン画面</h4>
-    <p class="card-text">
-      ここは、ユーザーログイン画面です。
-    </p>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :email %><br/>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+          </div>
 
-      <div class="field">
-        <%= f.label :email %><br/>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+          <div class="field">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+
+          <div class="actions">
+            <%= f.submit "Log in", class: 'btn btn-primary mt-3' %>
+          </div>
+        <% end %>
+
+        <%= render "users/shared/links" %>
+
       </div>
-
-      <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
-      </div>
-
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-        </div>
-      <% end %>
-
-      <div class="actions">
-        <%= f.submit "Log in", class: 'btn btn-primary mt-3' %>
-      </div>
-    <% end %>
-
-    <%= render "users/shared/links" %>
-
+    </div>
   </div>
 </div>
 </div>
