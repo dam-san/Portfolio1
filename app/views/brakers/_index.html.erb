@@ -23,10 +23,16 @@
            <%= braker.volt %> [V]
         </td>
         <td>
+          <%# binding.pry %>
            <%if braker.box.kind == 0 && braker.relation.present? %>
              <%= link_to braker.relation.box.name, box_path(braker.relation.box) %>
-           <%elsif braker.box.kind == 1 && braker.supply.present? %>
-              <%= link_to braker.supply.machine.name, machine_path(braker.supply.machine)  %>
+           <%elsif braker.box.kind == 1 %>
+              <% if braker.supply.present? %>
+                <%= link_to braker.supply.machine.name, machine_path(braker.supply.machine)  %>
+              <% else %>
+                <% binding.pry %>
+                <%= link_to braker.relation.box.name, box_path(braker.relation.box) %>
+              <% end %>
            <%else %>
              使用可能
             <%end%>

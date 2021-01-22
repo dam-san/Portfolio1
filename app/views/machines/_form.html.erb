@@ -22,7 +22,8 @@
             <%= f.label :cable_size %>
             <%= f.number_field :cable_size, class: 'form-control' %>
             <%= f.hidden_field :braker_id, :value =>@braker.id %>
-
+            <%= f.hidden_field :braker_volt, :value =>@braker.volt %>
+            <%= f.hidden_field :braker_current, :value =>@braker.size %>
             <%= f.submit class: 'btn btn-primary mt-3' %>
 
         <% end %>

@@ -28,10 +28,10 @@ class PlacesController < ApplicationController
   # POST /places
   # POST /places.json
   def create
+    flash[:info]="登録しました。"
     Place.new(place_params).save
     @place = Place.new
     @places = Place.all
-
   end
 
   # PATCH/PUT /places/1

@@ -2,24 +2,22 @@
     <div class="card h-100">
       <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
       <div class="card-body">
-        <h4 class="card-title">Box#show</h4>
+        <h4 class="card-title"><%= machine.name %></h4>
         <p class="card-text">
-          Some quick example text to build on the card title
-          and make up the bulk of the card's content.
+        　機器詳細です。
         </p>
-        <p>親</p>
-        <%= machine.supply.braker.box.name %>
-        <br><br>
-        <p>機器名</p>
-        <%= machine.name %>
-        <p>定格電力</p>
-        <%= machine.kw %>[kw]
-        <p>力率</p>
-        <%= machine.cos %>
-        <p>電圧</p>
-        <%= machine.volt %>
-        <p>場所</p>
-        No.<%= machine.place_id %>
+        親
+        <p><%= link_to machine.supply.braker.box.name, box_path(machine.supply.braker.box) %></p>
+        機器名
+        <p><%= link_to machine.name, machine_path(machine) %></p>
+        <a>定格電力</a>
+        <p><%= machine.kw %>[kw]</p>
+        <a>力率</a>
+        <p><%= machine.cos %></p>
+        <a>電圧</a>
+        <p><%= machine.volt %></p>
+        <a>場所</a>
+        <p>No.<%= machine.place_id %></p>
       </div>
     </div>
 

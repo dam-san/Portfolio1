@@ -3,7 +3,11 @@ class BrakersController < ApplicationController
   end
 
   def create
-    Braker.new(braker_params).save
+    if Braker.new(braker_params).save
+     flash[:info]="登録しました。"
+    else
+     flash[:error]="登録に失敗しました。"
+    end
     redirect_to request.referer
   end
 

@@ -23,6 +23,7 @@ class BoxesController < ApplicationController
       relation.box_id=box.id
       relation.save
     end
+    flash[:info]="登録しました。"
     redirect_to request.referer
   end
 

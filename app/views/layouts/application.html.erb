@@ -12,16 +12,20 @@
   <body class=py-5>
 
   </body>
+
     <div class="fixed-top">
       <%= render 'layouts/header' %>
     </div>
-    <main>
-      <div class="container">
 
-          <%= yield %>
 
-      </div>
-    </main>
+  <main>
+    <div class="my-2 bg-warning text-center text-dark" id="flash_error"><%=flash[:error]%></div>
+    <div class="my-2 bg-info text-center text-dark" id="flash_info"><%=flash[:info]%></div>
+    <div class="container">
+        <%= yield %>
+    </div>
+
+  </main>
 
     <%= render 'layouts/footer' %>
 
