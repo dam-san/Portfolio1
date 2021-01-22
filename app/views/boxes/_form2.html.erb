@@ -1,23 +1,22 @@
 <div class="card">
   <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
   <div class="card-body">
-    <h4 class="card-title">Distribution Board</h4>
+    <h4 class="card-title text-light">分電盤・配電盤登録</h4>
     <p class="card-text">
-      Some quick example text to build on the card title
-      and make up the bulk of the card's content.
+      分電盤および配電盤の登録ができます。
     </p>
             <%= form_with model:box,local:true do |f| %>
 
-                <%= f.label :name %>
+                <%= f.label :名前 %>
                 <%= f.text_field :name, class: 'form-control' %>
-                <%= f.label :place %>
+                <%= f.label :設置場所 %>
                 <%= f.collection_select :place, Place.all , :id, :place,{prompt: "選択してください"}, {class: "form-control"} %>
-                <%= f.label :cable_size %>
+                <%= f.label :電線サイズ %>
                 <%= f.number_field :cable_size, class: 'form-control' %>
                 <%= f.hidden_field :braker_id, :value =>@braker.id %>
                 <%= f.hidden_field :kind, :value =>1 %>
 
-            <%= f.submit class: 'btn btn-primary mt-3' %>
+            <%= f.submit "登録",class: 'btn btn-primary mt-3' %>
 
         <% end %>
 

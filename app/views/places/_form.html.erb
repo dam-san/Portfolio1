@@ -4,17 +4,15 @@
 <div class="card">
   <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
   <div class="card-body">
-    <h4 class="card-title">Location</h4>
+    <h4 class="card-title">新規登録</h4>
     <p class="card-text">
-      Some quick example text to build on the card title
-      and make up the bulk of the card's content.
+      場所情報の登録ができます。
     </p>
         <%= form_with model:place do |f| %>
 
-            <%= f.label :place %>
+            <%= f.label :場所名 %>
             <%= f.text_field :place, class: 'form-control' %>
-
-            <%= f.submit class: 'btn btn-primary mt-3' %>
+            <%= f.submit "登録",class: 'btn btn-primary mt-3' %>
 
         <% end %>
 

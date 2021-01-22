@@ -13,7 +13,12 @@ class MachinesController < ApplicationController
     else
 
       if current > params[:machine][:braker_current].to_i
-        flash[:error]="定格電流がブレーカーの容量を超えています。"
+        flash[:error]="定格電流がブレーカーの容量を超えています。機器：#{current.to_i}[A] ＞ #{params[:machine][:braker_current].to_i}[A]"
+        # @braker=Braker.find(params[:id])
+        # @box=Box.new
+        # @machine=Machine.new
+        # @max_kw=@braker.volt*@braker.size*Math.sqrt(3)/1000
+
         redirect_back(fallback_location: root_path)
       else
 
@@ -65,13 +70,18 @@ class MachinesController < ApplicationController
       volt=params[:machine][:volt].to_i
       cosine=params[:machine][:cos].to_i
       watt=params[:machine][:kw].to_i*1000
-    if volt==200
-      # P = √3 × I × V × cosθ
-      return (watt)/Math.sqrt(3)/volt/cosine
 
-    elsif volt==100
-      return (watt)/volt/cosine
-    end
+      if cosine!=0
+        if volt==200
+          # P = √3 × I × V × cosθ
+          return (watt)/Math.sqrt(3)/volt/cosine
+        elsif volt==100
+          return (watt)/volt/cosine
+        end
+
+      else
+        return 0
+      end
 
 
   end

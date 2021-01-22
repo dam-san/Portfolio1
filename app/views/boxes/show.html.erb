@@ -3,17 +3,13 @@
     <div class="card">
       <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
       <div class="card-body">
-        <h4 class="card-title"><%= @box.name %></h4>
-        <p class="card-text">
-          Some quick example text to build on the card title
-          and make up the bulk of the card's content.
-        </p>
+        <h4 class="card-title text-light"><%= @box.name %></h4>
             <% if @box.relation.present? %>
-            <p class="card-text">親</p>
-            <%= @box.relation.braker.box.name %>
+            親
+            <p class="text-light"><%= @box.relation.braker.box.name %></p>
             <%end %>
-            <p class="card-text">場所</p>
-            <%= @box.place.place %>
+            場所
+            <p class="text-light"><%= @box.place.place %></p>
 
       </div>
     </div>

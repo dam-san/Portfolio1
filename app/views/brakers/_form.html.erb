@@ -1,12 +1,7 @@
 <div class="card">
   <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
   <div class="card-body">
-    <h4 class="card-title">ブレーカー作成</h4>
-    <p class="card-text">
-      Some quick example text to build on the card title
-      and make up the bulk of the card's content.
-    </p>
-
+    <h4 class="card-title text-light">ブレーカー作成</h4>
         <%= form_with model:braker,local:true do |f| %>
 
             <%= f.label :size%>
@@ -14,7 +9,7 @@
             <%= f.label :volt%>
             <%= f.select :volt, {'100V': 100, '200V': 200}, { include_blank: '電圧'}, { class: 'form-control' , required: true } %>
             <%= f.hidden_field :box_id, :value => @box.id %>
-            <%= f.submit class: 'btn btn-primary mt-3' %>
+            <%= f.submit "登録", class: 'btn btn-primary mt-3' %>
 
         <% end %>
 

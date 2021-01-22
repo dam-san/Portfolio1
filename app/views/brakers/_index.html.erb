@@ -3,42 +3,38 @@
   <thead>
      <tr>
        <th>#</th>
-       <th>許容電流</th>
-       <th>電圧</th>
+       <th>ブレーカー</th>
        <th>使用状況</th>
+       <th></th>
        <th></th>
      </tr>
   </thead>
 
   <tbody>
      <% n=0 %>
-     <%  brakers.each do |braker|  %>
+     <% brakers.each do |braker|  %>
        <% n+=1 %>
        <tr>
-         <td><%= link_to n,  braker_path(braker),  class: ""%></td>
+         <td><%= n%></td>
          <td>
-           <%= braker.size%> [A]
+           <%= link_to "#{braker.volt}[V]用#{braker.size}[A]", braker_path(braker) %>
         </td>
+
         <td>
-           <%= braker.volt %> [V]
-        </td>
-        <td>
-          <%# binding.pry %>
            <%if braker.box.kind == 0 && braker.relation.present? %>
-             <%= link_to braker.relation.box.name, box_path(braker.relation.box) %>
-           <%elsif braker.box.kind == 1 %>
-              <% if braker.supply.present? %>
-                <%= link_to braker.supply.machine.name, machine_path(braker.supply.machine)  %>
-              <% else %>
-                <% binding.pry %>
                 <%= link_to braker.relation.box.name, box_path(braker.relation.box) %>
-              <% end %>
+           <%elsif braker.box.kind == 1 && braker.supply.present? %>
+                <%= link_to braker.supply.machine.name, machine_path(braker.supply.machine)  %>
+            <%elsif braker.box.kind == 1 && braker.relation.present? %>
+                <%= link_to braker.relation.box.name, box_path(braker.relation.box) %>
            <%else %>
-             使用可能
+                空き
             <%end%>
         </td>
         <td>
-           <%= link_to 'Edit', edit_braker_path(braker),  class: "btn btn-sm btn-outline-info"%> |
+           <%= link_to 'Edit', edit_braker_path(braker),  class: "btn btn-sm btn-outline-info"%>
+        </td>
+        <td>
             <%= link_to 'Destroy', braker_path(braker), method: :delete, class: "btn btn-sm btn-outline-warning"%>
         </td>
        </tr>

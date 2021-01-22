@@ -3,19 +3,19 @@
     <div class="card">
       <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
       <div class="card-body">
-        <h5 class="card-title"><%= @braker.box.name%>のブレーカー</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title
-          and make up the bulk of the card's content.
-        </p>
-        <p>belongs to：<%= link_to @braker.box.name, box_path(@braker.box) %></p>
-        <p>voltage：<%= @braker.volt %>[V]</p>
-        <p>Current：<%= @braker.size %>[A]</p>
-        <p>
+        <h5 class="card-title text-light"><%= @braker.box.name%>のブレーカー</h5>
+        親
+        <p class="text-light"><%= link_to @braker.box.name, box_path(@braker.box) %></p>
+        電圧
+        <p class="text-light"><%= @braker.volt %>[V]</p>
+        サイズ
+        <p class="text-light"><%= @braker.size %>[A]</p>
           <% if @braker.relation.present? %>
-              has:<%= link_to @braker.relation.box.name,box_path(@braker.relation.box) %>
+              子
+              <p class="text-light"><%= link_to @braker.relation.box.name,box_path(@braker.relation.box) %></p>
           <% elsif @braker.supply.present? %>
-              has:<%= link_to @braker.supply.machine.name, machine_path(@braker.supply.machine) %>
+              子
+              <p class="text-light"><%= link_to @braker.supply.machine.name, machine_path(@braker.supply.machine) %></p>
           <% end %>
         </p>
      </div>

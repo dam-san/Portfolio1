@@ -1,11 +1,11 @@
-<h4 class="text-center">〜<%= box.name%>〜</h4>
+<h5><%= box.name%> (接続状況)</h5>
 
 <table class='table table-boardered'>
 
   <thead>
      <tr>
        <th>ブレーカー</th>
-       <th>接続状況</th>
+       <th>使用状況</th>
        <th></th>
      </tr>
   </thead>
@@ -27,7 +27,7 @@
                    <%= link_to '詳細へ移動', box_path(braker.relation.box), class: "btn btn-sm btn-outline-info"%>
               </td>
 
-          <%elsif braker.box.kind == 1 && braker.supply.present? %>
+          <%elsif braker.box.kind == 1 && braker.supply.present?%>
 
               <td>
                    <%= link_to braker.supply.machine.name, tree_detail_path(braker.supply.machine), remote: true  %>
@@ -35,11 +35,17 @@
               <td>
                    <%= link_to '詳細へ移動', machine_path(braker.supply.machine), class: "btn btn-sm btn-outline-info"%>
               </td>
-
+          <%elsif braker.box.kind == 1 && braker.relation.present? %>
+              <td>
+                   <%= link_to braker.relation.box.name, tree_path(braker.relation.box), remote: true %>
+              </td>
+              <td>
+                   <%= link_to '詳細へ移動', box_path(braker.relation.box), class: "btn btn-sm btn-outline-info"%>
+              </td>
            <%else %>
 
                <td>
-                   使用可能
+                   空き
                 </td>
                 <td>
                    <%= link_to '機器追加する', braker_path(braker) , class: "btn btn-sm btn-outline-info"%>

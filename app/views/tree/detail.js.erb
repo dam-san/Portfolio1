@@ -1,1 +1,15 @@
-$("#<%= @box.floor+2 %> #show").html("<%= j(render 'jsdetail', {machine: @machine}) %>");
+
+    <% n=5%>
+    <%# binding.pry %>
+    <% m=@box.floor+1%>
+    <% m+=1%>
+
+    $("#<%= m %> #show").html("<%= j(render 'jsdetail', {machine: @machine}) %>");
+    $("#<%= m %> #index").html("");
+
+    <% for i in m+1..n do %>
+        $("#<%= i %> #show").html("");
+        $("#<%= i %> #index").html("");
+    <% end %>
+
+

@@ -1,5 +1,6 @@
 class Machine < ApplicationRecord
   has_one :supply
+  belongs_to :place
 
   validates :name, presence: true
   validates :place_id, presence: true
@@ -10,4 +11,6 @@ class Machine < ApplicationRecord
   def parent
     supply.braker.box
   end
+
+
 end

@@ -2,22 +2,22 @@
     <div class="card h-100">
       <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
       <div class="card-body">
-        <h4 class="card-title"><%= machine.name %></h4>
-        <p class="card-text">
-        　機器詳細です。
-        </p>
+        <h4 class="card-title text-light"><%= machine.name %></h4>
+        <p><%= link_to '詳細へ移動', machine_path(machine), class: "btn btn-sm btn-outline-info pull-right"%></p>
+
         親
-        <p><%= link_to machine.supply.braker.box.name, box_path(machine.supply.braker.box) %></p>
+        <p class="text-light"><%= machine.supply.braker.box.name %></p>
         機器名
-        <p><%= link_to machine.name, machine_path(machine) %></p>
-        <a>定格電力</a>
-        <p><%= machine.kw %>[kw]</p>
-        <a>力率</a>
-        <p><%= machine.cos %></p>
-        <a>電圧</a>
-        <p><%= machine.volt %></p>
-        <a>場所</a>
-        <p>No.<%= machine.place_id %></p>
+        <p class="text-light"><%= machine.name%></p>
+        定格電力
+        <p class="text-light"><%= machine.kw %>[kw]</p>
+        力率
+        <p class="text-light"><%= machine.cos %></p>
+        電圧
+        <p class="text-light"><%= machine.volt %>[V]</p>
+        場所
+        <p class="text-light"><%= Place.find(machine.place_id).place %></p>
+
       </div>
     </div>
 

@@ -28,6 +28,8 @@ class BrakersController < ApplicationController
     @box=Box.new
     # binding.pry
     @machine=Machine.new
+
+    @max_kw=@braker.volt*@braker.size*Math.sqrt(3)/1000
   end
 
   def index
