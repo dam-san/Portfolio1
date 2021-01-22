@@ -1,6 +1,6 @@
 class Place < ApplicationRecord
-  has_many :box
-  has_many :machine
+  has_many :box, dependent: :destroy
+  has_many :machine, dependent: :destroy
 
   validates :place, presence: true
 

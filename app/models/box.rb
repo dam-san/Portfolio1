@@ -1,6 +1,6 @@
 class Box < ApplicationRecord
-  has_many :brakers
-  has_one :relation
+  has_many :brakers, dependent: :destroy
+  has_one :relation, dependent: :destroy
   belongs_to :place
 
   validates :name, presence: true

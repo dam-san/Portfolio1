@@ -1,5 +1,5 @@
 class Machine < ApplicationRecord
-  has_one :supply
+  has_one :supply, dependent: :destroy
   belongs_to :place
 
   validates :name, presence: true

@@ -1,7 +1,7 @@
 class Braker < ApplicationRecord
   belongs_to :box
-  has_one :relation
-  has_one :supply
+  has_one :relation, dependent: :destroy
+  has_one :supply, dependent: :destroy
 
   validates :box_id, presence: true
   validates :size, presence: true

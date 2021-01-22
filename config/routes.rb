@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'search/index'
+  get 'search/create'
   namespace :admin do
     resources :manage, only: [:destroy, :update, :index]
     resources :member, only: [:destroy, :update, :index]
