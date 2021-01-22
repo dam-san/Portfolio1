@@ -1,17 +1,18 @@
 やり残し
 
-・flashエラーメッセージ
+・boxのソフトデリート
+・box　デストロイは、status変更　＋　relation supplyの削除
+・アドミンでソフトデリート完全削除
+・userstatus
+
+・ブラウザバックで登録　has_one validation
 
 ・商品：ケーブル登録
 ・商品：ブレーカー登録
-・電流計算
-
-・検索機能
 
 ・LINEBOT登録画面
 ・LINEBOT
 
-・ajax通信
 
 ・管理者画面設定
 

@@ -15,16 +15,21 @@ class BoxesController < ApplicationController
     if box.kind != 0
      box.floor=Braker.find(params[:box][:braker_id]).box.floor+1
     end
-    box.save
 
-    if judge
+    if box.save
+        flash[:info]="登録しました。"
+        if judge
+          relation=Relation.new(relation_params)
+          relation.box_id=box.id
+          relation.save
+        end
 
-      relation=Relation.new(relation_params)
-      relation.box_id=box.id
-      relation.save
+        redirect_to box_path(box)
+    else
+       flash[:error]="失敗しました。"
+       redirect_back(fallback_location: root_path)
     end
-    flash[:info]="登録しました。"
-    redirect_to request.referer
+
   end
 
   def edit
@@ -41,7 +46,8 @@ class BoxesController < ApplicationController
   def show
     @box=Box.find(params[:id])
 
-    @brakers=Braker.where(box_id: @box.id).includes(:relation).includes(:box)
+    @brakers=Braker.where(box_id: @box.id).includes(:relation, :supply)
+
     @braker=Braker.new
   end
 

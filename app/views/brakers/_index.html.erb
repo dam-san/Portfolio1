@@ -21,15 +21,18 @@
         </td>
 
         <td>
-           <%if braker.box.kind == 0 && braker.relation.present? %>
+          <%# binding.pry %>
+            <%if braker.relation.present? %>
                 <%= link_to braker.relation.box.name, box_path(braker.relation.box) %>
-           <%elsif braker.box.kind == 1 && braker.supply.present? %>
+           <%elsif braker.supply.present? %>
                 <%= link_to braker.supply.machine.name, machine_path(braker.supply.machine)  %>
-            <%elsif braker.box.kind == 1 && braker.relation.present? %>
-                <%= link_to braker.relation.box.name, box_path(braker.relation.box) %>
            <%else %>
                 空き
             <%end%>
+
+
+
+
         </td>
         <td>
            <%= link_to 'Edit', edit_braker_path(braker),  class: "btn btn-sm btn-outline-info"%>

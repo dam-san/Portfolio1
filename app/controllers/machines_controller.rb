@@ -11,32 +11,30 @@ class MachinesController < ApplicationController
       flash[:error]="ブレーカーと機器の電圧が一致しません。"
       redirect_back(fallback_location: root_path)
     else
+          if current > params[:machine][:braker_current].to_i
+            flash[:error]="定格電流がブレーカーの容量を超えています。機器：#{current.to_i}[A] ＞ #{params[:machine][:braker_current].to_i}[A]"
+            redirect_back(fallback_location: root_path)
+            
+          else
 
-      if current > params[:machine][:braker_current].to_i
-        flash[:error]="定格電流がブレーカーの容量を超えています。機器：#{current.to_i}[A] ＞ #{params[:machine][:braker_current].to_i}[A]"
-        # @braker=Braker.find(params[:id])
-        # @box=Box.new
-        # @machine=Machine.new
-        # @max_kw=@braker.volt*@braker.size*Math.sqrt(3)/1000
+                machine=Machine.new(machine_params)
+                machine.place_id=params[:machine][:place].to_i
+                machine.floor=Braker.find(params[:machine][:braker_id]).box.floor+1
 
-        redirect_back(fallback_location: root_path)
-      else
+                if machine.save
+                 flash[:info]="機器を登録しました。"
+                 supply=Supply.new(supply_params)
+                 supply.machine_id=machine.id
+                 supply.save
+                 redirect_to machine_path(machine)
+                else
+                 flash[:error]="登録に失敗しました。"
+                 redirect_back(fallback_location: root_path)
+                end
 
-        machine=Machine.new(machine_params)
-        machine.place_id=params[:machine][:place].to_i
-        machine.floor=Braker.find(params[:machine][:braker_id]).box.floor+1
-        if machine.save
-         flash[:info]="機器を登録しました。"
-        else
-         flash[:error]="登録に失敗しました。"
-        end
-
-        supply=Supply.new(supply_params)
-        supply.machine_id=machine.id
-        supply.save
-        redirect_to request.referer
-      end
+          end
     end
+
   end
 
   def edit
@@ -50,6 +48,10 @@ class MachinesController < ApplicationController
   end
 
   def destroy
+    machine=Machine.find(params[:id])
+    id=machine.supply.braker.id
+    machine.destroy
+    redirect_to braker_path(id)
   end
 
   private
@@ -68,21 +70,23 @@ class MachinesController < ApplicationController
 
   def current
       volt=params[:machine][:volt].to_i
-      cosine=params[:machine][:cos].to_i
+      cosine=params[:machine][:cos].to_f
       watt=params[:machine][:kw].to_i*1000
-
+      
       if cosine!=0
+        
         if volt==200
           # P = √3 × I × V × cosθ
           return (watt)/Math.sqrt(3)/volt/cosine
         elsif volt==100
           return (watt)/volt/cosine
         end
-
+        
       else
         return 0
       end
-
+      
+      
 
   end
 
