@@ -33,21 +33,33 @@ class BoxesController < ApplicationController
   end
 
   def edit
+    @box=Box.find(params[:id])
   end
 
   def destroy
-   Box.find(params[:id]).destroy
-   redirect_to request.referer
+   box=Box.find(params[:id])
+   if box.kind == 0
+      box.destroy
+      redirect_to new_box_path
+
+   else
+      box_parent=box.parent
+      box.destroy
+      redirect_to box_path(box_parent)
+    end
+
   end
 
   def update
+   box=Box.find(params[:id])
+   box.place_id=params[:box][:place].to_i
+   box.update(box_params)
+   redirect_to box_path(box)
   end
 
   def show
     @box=Box.find(params[:id])
-
     @brakers=Braker.where(box_id: @box.id).includes(:relation, :supply)
-
     @braker=Braker.new
   end
 

@@ -12,14 +12,20 @@ class BrakersController < ApplicationController
   end
 
   def edit
+    @braker=Braker.find(params[:id])
   end
 
   def destroy
-    Braker.find(params[:id]).destroy
-    redirect_to request.referer
+    braker=Braker.find(params[:id])
+    box=braker.box
+    braker.destroy
+    redirect_to box_path(box)
   end
 
   def update
+    braker=Braker.find(params[:id])
+    braker.update(braker_params)
+    redirect_to braker_path(braker)
   end
 
   def show

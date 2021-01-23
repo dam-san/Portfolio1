@@ -30,15 +30,12 @@
                 空き
             <%end%>
 
-
-
-
         </td>
         <td>
            <%= link_to 'Edit', edit_braker_path(braker),  class: "btn btn-sm btn-outline-info"%>
         </td>
         <td>
-            <%= link_to 'Destroy', braker_path(braker), method: :delete, class: "btn btn-sm btn-outline-warning"%>
+            <%= link_to 'Destroy', braker_path(braker), method: :delete, data: { confirm: '本当に消しますか？' },class: "btn btn-sm btn-outline-warning"%>
         </td>
        </tr>
      <% end %>
