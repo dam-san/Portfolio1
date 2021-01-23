@@ -12,7 +12,7 @@ class BoxesController < ApplicationController
     box.place_id=params[:box][:place].to_i
 
     # 以下は登録物の階層設定。brakerを持つ親の階層に＋１する
-    if box.kind != 0
+    if box.kind = 1 #kind0・・・変電所、kind1・・・分電盤
      box.floor=Braker.find(params[:box][:braker_id]).box.floor+1
     end
 

@@ -14,6 +14,8 @@
         <p class="text-light"><%= @machine.volt %></p>
         設置場所
         <p class="text-light"><%= @machine.place.place %></p>
+        <%= link_to 'Edit', edit_machine_path(@machine),  class: "btn btn-sm btn-outline-info"%>
+        <%= link_to 'Destroy', machine_path(@machine), method: :delete, data: { confirm: '本当に消しますか？' },class: "btn btn-sm btn-outline-warning"%>
       </div>
 
     </div>

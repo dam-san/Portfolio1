@@ -1,0 +1,24 @@
+<div class="card">
+  <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
+  <div class="card-body">
+    <h4 class="card-title text-light">編集</h4>
+    <p class="card-text">
+      機器の編集ができます。
+    </p>
+
+        <%= form_with model:machine,local:true do |f| %>
+
+            <%= f.label :名前 %>
+            <%= f.text_field :name, class: 'form-control', required: true%>
+            <%= f.label :設置場所 %>
+            <%= f.collection_select :place, Place.all , :id, :place,{prompt: "選択してください"}, {class: "form-control", required: true} %>
+            <%= f.label :定格容量 %>
+              <%= f.number_field :kw, step: 0.1, class: 'form-control', required: true  %>
+            <%= f.label :力率 %>
+            <%= f.number_field :cos,:value =>0.8,step: 0.1, class: 'form-control', required: true  %>
+            <%= f.submit "更新", class: 'btn btn-primary mt-3' %>
+
+        <% end %>
+
+  </div>
+</div>
