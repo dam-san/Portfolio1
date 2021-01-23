@@ -18,6 +18,11 @@ class BrakersController < ApplicationController
   def destroy
     braker = Braker.find(params[:id])
     box = braker.box
+    if braker.has_machine?
+      braker.machine_child.destroy
+    elsif braker.has_box?
+      braker.box_child.destroy
+    end
     braker.destroy
     redirect_to box_path(box)
   end

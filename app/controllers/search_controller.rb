@@ -1,8 +1,6 @@
 class SearchController < ApplicationController
-
   # kind=2はmachineの情報
   # kind=0,1はboxなので、同じ型の情報
-
 
   def index
     if params[:kind].to_i == 2

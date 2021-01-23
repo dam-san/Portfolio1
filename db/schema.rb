@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_15_072202) do
+ActiveRecord::Schema.define(version: 2021_01_23_091858) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2021_01_15_072202) do
     t.boolean "is_deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_boxes_on_discarded_at"
   end
 
   create_table "brakers", force: :cascade do |t|

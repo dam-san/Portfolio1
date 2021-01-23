@@ -5,7 +5,7 @@
       <div class="card-body">
         <h4 class="card-title text-light"><%= @machine.name%></h4>
         親
-        <p class="text-light"><%= @machine.supply.braker.box.name %></p>
+        <p class="text-light"><%= link_to @machine.parent.name,box_path(@machine.parent) %></p>
         定格容量
         <p class="text-light"><%= @machine.kw %>[kw]</p>
         力率

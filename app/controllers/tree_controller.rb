@@ -1,8 +1,14 @@
 class TreeController < ApplicationController
-  　　　　　　　　 # tree�������関する唯一のhtmlページ
+  # tree�������関する唯一のhtmlページ
   def index
     @boxes = Box.where(kind: 0)
-    end
+
+    @nrelation = Relation.all.size
+    @nsupply = Supply.all.size
+    @nbox = Box.all.size
+    @nbraker = Braker.all.size
+    @nmachine = Machine.all.size
+  end
 
   # クリック時のｊｓ通信に関するアクションです。
   def show
