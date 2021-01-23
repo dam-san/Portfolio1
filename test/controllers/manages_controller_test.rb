@@ -15,5 +15,4 @@ class ManagesControllerTest < ActionDispatch::IntegrationTest
     get manages_user_manage_url
     assert_response :success
   end
-
 end

@@ -17,7 +17,7 @@ class FacilityRelationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create facility_relation" do
     assert_difference('FacilityRelation.count') do
-      post facility_relations_url, params: { facility_relation: {  } }
+      post facility_relations_url, params: { facility_relation: {} }
     end
 
     assert_redirected_to facility_relation_url(FacilityRelation.last)
@@ -34,7 +34,7 @@ class FacilityRelationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update facility_relation" do
-    patch facility_relation_url(@facility_relation), params: { facility_relation: {  } }
+    patch facility_relation_url(@facility_relation), params: { facility_relation: {} }
     assert_redirected_to facility_relation_url(@facility_relation)
   end
 

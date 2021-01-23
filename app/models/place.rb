@@ -3,6 +3,4 @@ class Place < ApplicationRecord
   has_many :machine, dependent: :destroy
 
   validates :place, presence: true
-
-
 end

@@ -1,5 +1,4 @@
 class Admin::ManageController < ApplicationController
-
   before_action :authenticate_admin!
 
   def index
@@ -11,6 +10,4 @@ class Admin::ManageController < ApplicationController
 
   def destroy
   end
-
-
 end

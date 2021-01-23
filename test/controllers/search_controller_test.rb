@@ -10,5 +10,4 @@ class SearchControllerTest < ActionDispatch::IntegrationTest
     get search_create_url
     assert_response :success
   end
-
 end

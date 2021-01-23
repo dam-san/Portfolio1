@@ -5,7 +5,7 @@
         <h4 class="card-title text-light"><%= @box.name %></h4>
             <% if @box.relation.present? %>
             親
-            <p class="text-light"><%= @box.relation.braker.box.name %></p>
+            <p class="text-light"><%= link_to @box.parent.name,box_path(@box.parent) %></p>
             <%end %>
             場所
             <p class="text-light"><%= @box.place.place %></p>

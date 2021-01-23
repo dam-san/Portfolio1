@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get 'search/index'
   get 'search/create'
   namespace :admin do
@@ -10,15 +9,15 @@ Rails.application.routes.draw do
   get '/admin' => 'admin/manage#index'
 
   devise_for :admin, controllers: {
-    sessions:      'admins/sessions',
-    passwords:     'admins/passwords',
-    registrations: 'admins/registrations'
+    sessions: 'admins/sessions',
+    passwords: 'admins/passwords',
+    registrations: 'admins/registrations',
   }
 
   devise_for :users, controllers: {
-    sessions:      'users/sessions',
-    passwords:     'users/passwords',
-    registrations: 'users/registrations'
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
+    registrations: 'users/registrations',
   }
 
   root to: 'home#top'
@@ -26,7 +25,7 @@ Rails.application.routes.draw do
   # get '/boxes/detail/:id' => 'boxes#detail', as: 'box_detail'
   get '/tree/detail/:id' => 'tree#detail', as: 'tree_detail'
   # get '/brakers/detail/:id' => 'brakers#detail', as: 'braker_detail'
-  
+
   resources :tree, only: [:show, :index]
   resources :boxes
   resources :brakers

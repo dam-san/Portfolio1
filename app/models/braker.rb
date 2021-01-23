@@ -7,7 +7,6 @@ class Braker < ApplicationRecord
   validates :size, presence: true
   validates :volt, presence: true
 
-
   def has_machine?
     supply.present?
   end
@@ -23,5 +22,4 @@ class Braker < ApplicationRecord
   def box_child
     relation.box
   end
-
 end

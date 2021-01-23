@@ -17,7 +17,7 @@ class RelayBrakersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create relay_braker" do
     assert_difference('RelayBraker.count') do
-      post relay_brakers_url, params: { relay_braker: {  } }
+      post relay_brakers_url, params: { relay_braker: {} }
     end
 
     assert_redirected_to relay_braker_url(RelayBraker.last)
@@ -34,7 +34,7 @@ class RelayBrakersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update relay_braker" do
-    patch relay_braker_url(@relay_braker), params: { relay_braker: {  } }
+    patch relay_braker_url(@relay_braker), params: { relay_braker: {} }
     assert_redirected_to relay_braker_url(@relay_braker)
   end
 

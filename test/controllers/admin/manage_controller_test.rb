@@ -10,5 +10,4 @@ class Admin::ManageControllerTest < ActionDispatch::IntegrationTest
     get admin_manage_destroy_url
     assert_response :success
   end
-
 end

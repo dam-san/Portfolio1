@@ -10,5 +10,4 @@ class Admin::MemberControllerTest < ActionDispatch::IntegrationTest
     get admin_member_destroy_url
     assert_response :success
   end
-
 end

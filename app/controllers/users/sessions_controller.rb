@@ -11,8 +11,7 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super
-    session[:company]=current_user
-
+    session[:company] = current_user
   end
 
   # DELETE /resource/sign_out
@@ -26,8 +25,7 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-  
-  
+
   # def reject_inactive_user
   #     @user  = User.find_by(email: params[:user][:email].downcase)
   #       if @user && @user.is_deleted
@@ -36,6 +34,4 @@ class Users::SessionsController < Devise::SessionsController
   #         flash[:error] = ""
   #       end
   #   end
-  
-  
 end

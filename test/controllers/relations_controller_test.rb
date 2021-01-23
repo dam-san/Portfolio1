@@ -35,5 +35,4 @@ class RelationsControllerTest < ActionDispatch::IntegrationTest
     get relations_destroy_url
     assert_response :success
   end
-
 end

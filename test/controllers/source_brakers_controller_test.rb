@@ -17,7 +17,7 @@ class SourceBrakersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create source_braker" do
     assert_difference('SourceBraker.count') do
-      post source_brakers_url, params: { source_braker: {  } }
+      post source_brakers_url, params: { source_braker: {} }
     end
 
     assert_redirected_to source_braker_url(SourceBraker.last)
@@ -34,7 +34,7 @@ class SourceBrakersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update source_braker" do
-    patch source_braker_url(@source_braker), params: { source_braker: {  } }
+    patch source_braker_url(@source_braker), params: { source_braker: {} }
     assert_redirected_to source_braker_url(@source_braker)
   end
 

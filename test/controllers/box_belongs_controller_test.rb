@@ -35,5 +35,4 @@ class BoxBelongsControllerTest < ActionDispatch::IntegrationTest
     get box_belongs_index_url
     assert_response :success
   end
-
 end

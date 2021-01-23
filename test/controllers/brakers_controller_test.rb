@@ -35,5 +35,4 @@ class BrakersControllerTest < ActionDispatch::IntegrationTest
     get brakers_index_url
     assert_response :success
   end
-
 end

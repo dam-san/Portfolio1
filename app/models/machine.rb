@@ -11,6 +11,4 @@ class Machine < ApplicationRecord
   def parent
     supply.braker.box
   end
-
-
 end

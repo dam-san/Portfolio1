@@ -35,5 +35,4 @@ class MachinesControllerTest < ActionDispatch::IntegrationTest
     get machines_destroy_url
     assert_response :success
   end
-
 end

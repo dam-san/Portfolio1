@@ -35,5 +35,4 @@ class SuppliesControllerTest < ActionDispatch::IntegrationTest
     get supplies_destroy_url
     assert_response :success
   end
-
 end

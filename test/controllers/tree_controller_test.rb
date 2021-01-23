@@ -10,5 +10,4 @@ class TreeControllerTest < ActionDispatch::IntegrationTest
     get tree_index_url
     assert_response :success
   end
-
 end

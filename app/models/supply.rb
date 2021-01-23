@@ -5,5 +5,4 @@ class Supply < ApplicationRecord
   validates :braker_id, presence: true, uniqueness: true
   validates :machine_id, presence: true, uniqueness: true
   validates :cable_size, presence: true
-
 end

@@ -7,12 +7,7 @@ class Box < ApplicationRecord
   validates :place_id, presence: true
   validates :kind, presence: true
 
-
-
-
   def parent
     relation.braker.box
   end
-
-
 end

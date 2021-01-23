@@ -17,7 +17,7 @@ class RelaysControllerTest < ActionDispatch::IntegrationTest
 
   test "should create relay" do
     assert_difference('Relay.count') do
-      post relays_url, params: { relay: {  } }
+      post relays_url, params: { relay: {} }
     end
 
     assert_redirected_to relay_url(Relay.last)
@@ -34,7 +34,7 @@ class RelaysControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update relay" do
-    patch relay_url(@relay), params: { relay: {  } }
+    patch relay_url(@relay), params: { relay: {} }
     assert_redirected_to relay_url(@relay)
   end
 
