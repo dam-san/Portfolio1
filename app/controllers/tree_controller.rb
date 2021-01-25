@@ -3,11 +3,11 @@ class TreeController < ApplicationController
   def index
     @boxes = Box.where(kind: 0)
 
-    @nrelation = Relation.all.size
-    @nsupply = Supply.all.size
-    @nbox = Box.all.size
-    @nbraker = Braker.all.size
-    @nmachine = Machine.all.size
+    # @nrelation = Relation.all.size
+    # @nsupply = Supply.all.size
+    # @nbox = Box.all.size
+    # @nbraker = Braker.all.size
+    # @nmachine = Machine.all.size
   end
 
   # クリック時のｊｓ通信に関するアクションです。

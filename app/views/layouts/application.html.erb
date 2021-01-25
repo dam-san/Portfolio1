@@ -9,28 +9,23 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class=py-5>
-
+  <body class=pt-5>
 
     <div class="fixed-top">
       <%= render 'layouts/header' %>
     </div>
-    @nrelation<%=@nrelation%><br>
-    @nsupply<%=@nsupply%><br>
-    @nbox<%= @nbox%><br>
-    @nbraker<%=@nbraker%><br>
-    @nmachine<%=@nmachine%><br>
 
   <main>
     <div class="my-2 bg-warning text-center text-dark" id="flash_error"><%=flash[:error]%></div>
     <div class="my-2 bg-info text-center text-dark" id="flash_info"><%=flash[:info]%></div>
-    <div class="container">
+    <div class="wrapper">
+      <div class="container">
         <%= yield %>
+      </div>
     </div>
-
   </main>
 
-    <%#= render 'layouts/footer' %>
+    <%= render 'layouts/footer' %>
 
   </body>
 </html>
