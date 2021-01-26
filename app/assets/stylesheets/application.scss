@@ -4,14 +4,17 @@
 @import "*";
 
 .card{
-  background-color: rgba(34, 49, 52, 0.90);
+  // background-color: rgba(34, 49, 52, 0.90);
+  background-color:#003333;
+  // opacity: 0.9;
 }
 .table{
-  background-color: rgba(34, 49, 52, 0.90);
+  // background-color: rgba(34, 49, 52, 0.90);
+  background-color:#003333;
 }
 
 .wrapper {
-  padding: 50px 0 200px 0;
+  padding: 50px 0 0px 0;
   background-image: url(/assets/lamp.jpg);
 
 
@@ -33,10 +36,24 @@
 
 .top{
   // height: 600px;
-  color: white;
+  // color: white;
   opacity: 0.7;
 }
+
+
+
 
 .footer{
   // background-color: rgba(34, 49, 52, 0.7);
 }
+
+
+
+p{
+  font-size: 1.15rem;
+}
+
+.white{
+  color:white;
+}
+

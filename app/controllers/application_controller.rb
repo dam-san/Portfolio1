@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+
   protected
 
   # # ログイン時のパスを変更してる
@@ -20,4 +21,12 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :company])
   end
+
+  def ensure_current_user
+    if current_user.status=="Invalid"
+      flash[:error]="管理者から権限付与がされていません。"
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
 end

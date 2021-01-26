@@ -3,6 +3,8 @@ class BoxesController < ApplicationController
 
  # box.kind=0 親なし（変電所）
  # box.kind=1 親あり（分電盤）
+  before_action :ensure_current_user
+
 
   def new
     @box = Box.new
