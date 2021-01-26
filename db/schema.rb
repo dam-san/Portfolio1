@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_23_091858) do
+ActiveRecord::Schema.define(version: 2021_01_15_072202) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,42 +28,41 @@ ActiveRecord::Schema.define(version: 2021_01_23_091858) do
 
   create_table "boxes", force: :cascade do |t|
     t.string "name"
-    t.string "image_id"
-    t.string "company"
     t.integer "place_id"
     t.integer "floor", default: 0
     t.integer "kind", default: 0
-    t.boolean "is_deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "discarded_at"
-    t.index ["discarded_at"], name: "index_boxes_on_discarded_at"
   end
 
   create_table "brakers", force: :cascade do |t|
     t.integer "box_id"
-    t.string "company"
     t.integer "size"
     t.integer "volt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "cables", force: :cascade do |t|
+    t.string "name"
+    t.integer "core"
+    t.float "sq"
+    t.integer "size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "machines", force: :cascade do |t|
     t.string "name"
-    t.string "image_id"
     t.integer "place_id"
-    t.string "company"
     t.integer "volt"
     t.integer "floor", default: 0
     t.float "kw"
     t.float "cos"
-    t.boolean "is_deleted", default: false
   end
 
   create_table "places", force: :cascade do |t|
     t.string "place"
-    t.string "company"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,7 +70,6 @@ ActiveRecord::Schema.define(version: 2021_01_23_091858) do
   create_table "relations", force: :cascade do |t|
     t.integer "braker_id"
     t.integer "box_id"
-    t.string "company"
     t.integer "cable_size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -80,7 +78,6 @@ ActiveRecord::Schema.define(version: 2021_01_23_091858) do
   create_table "supplies", force: :cascade do |t|
     t.integer "braker_id"
     t.integer "machine_id"
-    t.string "company"
     t.integer "cable_size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
