@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations',
   }
-
+  post '/home/guest_sign_in', to: 'home#new_guest'
   root to: 'home#top'
 
   # get '/boxes/detail/:id' => 'boxes#detail', as: 'box_detail'

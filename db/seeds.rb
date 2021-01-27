@@ -8,16 +8,16 @@
 
 
   Admin.create!(
-   name: '管理太郎',
+   name: '管理',
    company: 'knowHows.co',
-   email: 'd@g',
+   email: 'admin@admin.com',
    password: '098098',
   )
 
   User.create!(
-   name: '社員二郎',
+   name: '社員',
    company: 'knowHows.co',
-   email: 'c@t',
+   email: 'user@user.com',
    password: '098098',
   )
 

@@ -8,6 +8,8 @@ class User < ApplicationRecord
     Valid: 1,
   }
 
+  validates :email, length: { minimum: 8}
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
