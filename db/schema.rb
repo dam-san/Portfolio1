@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2021_01_15_072202) do
   create_table "relations", force: :cascade do |t|
     t.integer "braker_id"
     t.integer "box_id"
-    t.integer "cable_size"
+    t.string "cable_size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2021_01_15_072202) do
   create_table "supplies", force: :cascade do |t|
     t.integer "braker_id"
     t.integer "machine_id"
-    t.integer "cable_size"
+    t.string "cable_size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

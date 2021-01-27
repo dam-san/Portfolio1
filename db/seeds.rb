@@ -48,7 +48,7 @@
 
   sqArray.size.times do |i|
    Cable.create!(
-    name: "CV3C",
+    name: "CV #{sqArray[i]}sq-3C",
     core: 3,
     sq: sqArray[i],
     size: sizeArray[i],
@@ -60,7 +60,7 @@
 
   sqArray.size.times do |i|
    Cable.create!(
-    name: "CVT",
+    name: "CVT #{sqArray[i]}sq",
     core: 3,
     sq: sqArray[i],
     size: sizeArray[i],
@@ -72,7 +72,7 @@
 
   sqArray.size.times do |i|
    Cable.create!(
-    name: "CV2C",
+    name: "CV #{sqArray[i]}sq-2C",
     core: 2,
     sq: sqArray[i],
     size: sizeArray[i],

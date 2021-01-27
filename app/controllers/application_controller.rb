@@ -23,8 +23,12 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_current_user
-    if current_user.status=="Invalid"
-      flash[:error]="管理者から権限付与がされていません。"
+    if current_user.present?
+      if current_user.status=="Invalid"
+        flash[:error]="管理者から権限付与がされていません。"
+        redirect_back(fallback_location: root_path)
+      end
+    else
       redirect_back(fallback_location: root_path)
     end
   end

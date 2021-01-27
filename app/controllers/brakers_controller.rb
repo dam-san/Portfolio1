@@ -1,7 +1,7 @@
 class BrakersController < ApplicationController
-  
+
   before_action :ensure_current_user
-  
+
   def new
   end
 
@@ -40,6 +40,19 @@ class BrakersController < ApplicationController
     @braker = Braker.find(params[:id])
     @box = Box.new
     @machine = Machine.new
+
+    if @braker.volt==200
+      cables_all=Cable.where(core: 3)
+    elsif @braker.volt==100
+      cables_all=Cable.where(core: 2)
+    end
+    @cables=[]
+    cables_all.each do |cable|
+      if cable.size > @braker.size
+        @cables.push(cable)
+      end
+    end
+
     # ブレーカーの許容できるワット数を試算(200Vのみ対応)
     @max_kw = @braker.volt * @braker.size * Math.sqrt(3) / 1000
   end

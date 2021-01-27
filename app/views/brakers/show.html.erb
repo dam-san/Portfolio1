@@ -24,7 +24,8 @@
           <% elsif @braker.supply.present? %>
               子
               <p class="text-light"><%= link_to @braker.supply.machine.name, machine_path(@braker.supply.machine) %></p>
-          <% end %>cddit_braker_path(@braker),  class: "btn btn-sm btn-outline-info"%>
+          <% end %>
+          <%= link_to 'Edit', edit_braker_path(@braker),  class: "btn btn-sm btn-outline-info"%>
           <%= link_to 'Destroy', braker_path(@braker), method: :delete, data: { confirm: '本当に消しますか？' },class: "btn btn-sm btn-outline-warning"%>
      </div>
     </div>

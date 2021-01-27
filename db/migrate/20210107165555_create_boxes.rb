@@ -24,7 +24,7 @@ class CreateBoxes < ActiveRecord::Migration[5.2]
       t.integer :braker_id
       t.integer :box_id
       # t.string :company
-      t.integer :cable_size
+      t.string :cable_size
       t.timestamps
     end
 
@@ -32,7 +32,7 @@ class CreateBoxes < ActiveRecord::Migration[5.2]
       t.integer :braker_id
       t.integer :machine_id
       # t.string :company
-      t.integer :cable_size
+      t.string :cable_size
       t.timestamps
     end
 

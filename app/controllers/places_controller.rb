@@ -19,7 +19,7 @@ class PlacesController < ApplicationController
   end
 
   def create
-    flash[:info] = "登録しました。"
+    # flash[:info] = "登録しました。"
     Place.new(place_params).save
     @place = Place.new
     @places = Place.all
