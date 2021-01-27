@@ -1,3 +1,11 @@
+<!--<input type="hidden" id="refresh" value="no">-->
+<!--<script>-->
+<!--$(document).ready(function() {-->
+<!--  var input = $('#refresh');-->
+<!--  input.val() == 'yes' ? location.reload(true) : input.val('yes');-->
+<!--});-->
+<!--</script>-->
+
 <div class="row mt-5">
   <div class="col-lg-4">
     <div class="card">
@@ -16,8 +24,7 @@
           <% elsif @braker.supply.present? %>
               子
               <p class="text-light"><%= link_to @braker.supply.machine.name, machine_path(@braker.supply.machine) %></p>
-          <% end %>
-          <%= link_to 'Edit', edit_braker_path(@braker),  class: "btn btn-sm btn-outline-info"%>
+          <% end %>cddit_braker_path(@braker),  class: "btn btn-sm btn-outline-info"%>
           <%= link_to 'Destroy', braker_path(@braker), method: :delete, data: { confirm: '本当に消しますか？' },class: "btn btn-sm btn-outline-warning"%>
      </div>
     </div>
