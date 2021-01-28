@@ -1,12 +1,13 @@
-
+    <!--最大5世代-->
     <% n=5%>
-    <%# binding.pry %>
-    <% m=@box.floor+1%>
+        <!--子要素を展開するdivの改装のid-->
+        <% m=@box.floor+1%>
     <% m+=1%>
 
     $("#<%= m %> #show").html("<%= j(render 'jsdetail', {machine: @machine}) %>");
     $("#<%= m %> #index").html("");
-
+    
+    <!--展開した子要素より、下の階層の情報を空-->
     <% for i in m+1..n do %>
         $("#<%= i %> #show").html("");
         $("#<%= i %> #index").html("");

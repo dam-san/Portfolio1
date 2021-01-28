@@ -1,11 +1,10 @@
 <div class="card">
-  <!--<img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">-->
   <div class="card-body">
     <h4 class="card-title text-light">ブレーカー作成</h4>
         <%= form_with model:braker,local:true do |f| %>
 
             <%= f.label :size%>
-            <%= f.select  :size, {'600A': 600, '450A': 450, '300A': 300, '200A': 200, '100A': 100,'60A': 60}, { include_blank: 'サイズ'}, { class: 'form-control', required: true} %>
+            <%= f.select  :size, {'600A': 600, '300A': 300, '225A': 225, '150A': 150, '100A': 100,'60A': 60,'30A': 30,'15A': 15}, { include_blank: 'サイズ'}, { class: 'form-control', required: true} %>
             <%= f.label :volt%>
             <%= f.select :volt, {'100V': 100, '200V': 200}, { include_blank: '電圧'}, { class: 'form-control' , required: true } %>
             <%= f.submit "更新", class: 'btn btn-primary mt-3' %>
