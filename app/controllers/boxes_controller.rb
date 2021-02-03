@@ -24,9 +24,11 @@ class BoxesController < ApplicationController
       if box.save
         flash[:info] = "登録しました。"
         # 以下、Vision APIのtag記述
-        tags = Vision.get_image_data(box.image)
-        tags.each do |tag|
-          box.tags.create(name: tag)
+        if box.image.present?
+          tags = Vision.get_image_data(box.image)
+          tags.each do |tag|
+            box.tags.create(name: tag)
+          end
         end
         # 以下のjudgeは、親の有無を判断。親がいる場合はbrakerとのrelationを記録する。
         if judge

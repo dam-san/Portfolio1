@@ -8,6 +8,7 @@
         </p>
         名前
         <p class="text-light"><%= place.place %></p>
+        <%= attachment_image_tag @place, :image, :fill, 300, 300, format: 'jpeg' %>
       </div>
     </div>
   </div>
