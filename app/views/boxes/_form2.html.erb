@@ -11,6 +11,7 @@
                 <%= f.collection_select :place, Place.all , :id, :place,{prompt: "選択してください"}, {class: "form-control", required: true} %>
                 <%= f.label :電線サイズ %>
                 <%= f.collection_select :cable_size, @cables, :name, :name,{prompt: "選択してください"}, {class: "form-control", required: true} %>
+                <%= f.attachment_field :image %><br>
                 <%= f.hidden_field :braker_id, :value =>@braker.id %>
                 <%= f.hidden_field :kind, :value =>1 %>
 

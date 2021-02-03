@@ -15,6 +15,9 @@
     <%= render 'layouts/header' %>
     <div class="bg-warning text-center text-dark" id="flash_error"><%=flash[:error]%></div>
     <div class="bg-info text-center text-dark" id="flash_info"><%=flash[:info]%></div>
+    <% if Cable.all.blank? %>
+      <div class="bg-danger text-center text-dark" id="flash_info">$ rails db:seed をしてください。</div>
+    <% end %>
   </div>
 
   <main>

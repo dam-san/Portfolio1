@@ -17,12 +17,12 @@
    password: '098098',
   )
 
-  User.create!(
-   name: '社員',
-   company: 'knowHows.co',
-   email: 'user@user.com',
-   password: '098098',
-  )
+  # User.create!(
+  #  name: '社員',
+  #  company: 'knowHows.co',
+  #  email: 'user@user.com',
+  #  password: '098098',
+  # )
 
 
    # 3.times do |number|

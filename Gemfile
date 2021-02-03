@@ -76,3 +76,9 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+
+# 画像投稿用gem
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+# 画像加工用（サイズ調整など）gem
+gem "refile-mini_magick"
+

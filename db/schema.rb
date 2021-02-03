@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_15_072202) do
+ActiveRecord::Schema.define(version: 2021_02_03_002952) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_01_15_072202) do
 
   create_table "boxes", force: :cascade do |t|
     t.string "name"
+    t.string "image_id"
     t.integer "place_id"
     t.integer "floor", default: 0
     t.integer "kind", default: 0
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 2021_01_15_072202) do
 
   create_table "machines", force: :cascade do |t|
     t.string "name"
+    t.string "image_id"
     t.integer "place_id"
     t.integer "volt"
     t.integer "floor", default: 0
@@ -63,6 +65,7 @@ ActiveRecord::Schema.define(version: 2021_01_15_072202) do
 
   create_table "places", force: :cascade do |t|
     t.string "place"
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -79,6 +82,13 @@ ActiveRecord::Schema.define(version: 2021_01_15_072202) do
     t.integer "braker_id"
     t.integer "machine_id"
     t.string "cable_size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.integer "box_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

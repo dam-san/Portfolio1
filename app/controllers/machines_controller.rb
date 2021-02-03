@@ -65,7 +65,7 @@ class MachinesController < ApplicationController
   private
 
   def machine_params
-    params.require(:machine).permit(:name, :kw, :cos, :place_id, :volt)
+    params.require(:machine).permit(:name, :kw, :cos, :place_id, :volt, :image)
   end
 
   def supply_params

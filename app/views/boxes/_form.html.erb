@@ -9,6 +9,7 @@
             <%= f.text_field :name, {class: 'form-control', required: true}  %>
             <%= f.label :設置場所 %>
             <%= f.collection_select :place, Place.all , :id, :place,{prompt: "選択してください"}, {class: "form-control", required: true} %>
+            <%= f.attachment_field :image %><br>
             <%= f.submit "登録",class:  'btn btn-primary mt-3' %>
         <% end %>
 

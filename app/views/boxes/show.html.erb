@@ -10,6 +10,12 @@
             <%end %>
             場所
             <p class="text-light"><%= @box.place.place %></p>
+            <%= attachment_image_tag @box, :image, :fill, 300, 300, format: 'jpeg' %>
+            <div>
+              <% @box.tags.each do |tag| %>
+                <span class="badge badge-pill badge-info"><%= tag.name %></span>
+              <% end %>
+            </div>
             <% if @box.kind ==1 %>
               幹線サイズ
               <p class="text-light"><%= @box.relation.cable_size%></p>

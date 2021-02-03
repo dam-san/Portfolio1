@@ -4,7 +4,7 @@ class CreateBoxes < ActiveRecord::Migration[5.2]
 
     create_table :boxes do |t|
       t.string :name
-      # t.string :image_id
+      t.string :image_id
       # t.string :company
       t.integer :place_id
       t.integer :floor, default: 0
@@ -38,13 +38,14 @@ class CreateBoxes < ActiveRecord::Migration[5.2]
 
     create_table :places do |t|
       t.string :place
+      t.string :image_id
       # t.string :company
       t.timestamps
     end
 
     create_table :machines do |t|
       t.string :name
-      # t.string :image_id
+      t.string :image_id
       t.integer :place_id
       # t.string :company
       t.integer :volt
